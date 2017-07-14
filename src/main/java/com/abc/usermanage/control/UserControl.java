@@ -15,7 +15,6 @@ public class UserControl
 	{
 //		Map<String, String> mapResult = new HashMap<String, String>();
 //		mapResult.put("item", "测试成功");
-		
 		return "测试成功，我来了！";
 	}	
 }
