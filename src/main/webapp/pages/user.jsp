@@ -12,8 +12,13 @@
   </head>
   <body>
 		<div id="divTest">
-			<p v-text="text"></p>			
-			<!--  <button id="btn" v-on:click="getData">按钮</button>-->
+			<template v-for="user in userList">
+			<ul>
+			  <li v-for="(value, key) in user" v-show="key != 'userId' && user.userType != '管理员'">
+			  	{{key}} ：{{value}}
+			  </li>
+			</ul>
+			</template>
 		</div>
   </body>
 </html>
@@ -28,15 +33,20 @@
 		
 		var vm = new Vue({
 			el:"#divTest",
-			data:{text : ''},
+			data:{
+				userList:{
+					
+				}
+			},
 			
 			//methods:{
 				created:function(){				
 				var _self = this;
 				$.ajax({
 	                url:"../UserControl/test",
+	                dataType:'json',
 	                success:function(result){
-	                	_self.text = result;                  
+	                	_self.userList = result;                  
 	                },
 	                error:function(){
 	                    alert("请求失败");
