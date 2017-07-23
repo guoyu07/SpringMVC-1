@@ -1,10 +1,10 @@
-package com.abc.usermanage.biz;
+package com.abc.usermanage.datamapper;
 
 import java.util.List;
 
 import com.abc.usermanage.model.User;
 
-public interface UserBiz 
+public interface UserDataMapper 
 {
 	/**
 	 * 查询符合条件用户记录数

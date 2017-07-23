@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project-modules id="moduleCoreId" project-version="1.5.0">
+<project-modules id="moduleCoreId" project-version="2.0">
 	<wb-module deploy-name="SpringMVC">
 		<property name="context-root" value="SpringMVC"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/resources"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
 		<wb-resource deploy-path="/" source-path="src/main/webapp"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/gradle_user_home/caches/modules-2/files-2.1/org.springframework/spring-context/4.2.3.RELEASE/fb26a160d984eb9cbf01fbf38f4b17e15fdd50e1/spring-context-4.2.3.RELEASE.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
@@ -17,10 +14,34 @@
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/gradle_user_home/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.2.3.RELEASE/46803840259c6d51c531e4f07f4213d758c6ee1d/spring-webmvc-4.2.3.RELEASE.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/gradle_user_home/caches/modules-2/files-2.1/org.springframework/spring-tx/4.2.3.RELEASE/617420d7e0351c334aa4495d6f30ad21c4c643a7/spring-tx-4.2.3.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/gradle_user_home/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.2.3.RELEASE/22f129baf3914b6bbaa842f9356c32d93ecf7bc1/spring-jdbc-4.2.3.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/gradle_user_home/caches/modules-2/files-2.1/org.mybatis/mybatis/3.2.6/4c53554a5f32a4315eeb4dbf74faf49cec449f5f/mybatis-3.2.6.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/gradle_user_home/caches/modules-2/files-2.1/org.mybatis/mybatis-spring/1.2.2/1e40a7f5373e4242075a1d386817e7dd49b1697d/mybatis-spring-1.2.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/gradle_user_home/caches/modules-2/files-2.1/javax.servlet.jsp.jstl/jstl/1.2/7a93a178d5599db1321a9e5ff927b4ed015b68d8/jstl-1.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/gradle_user_home/caches/modules-2/files-2.1/taglibs/standard/1.1.2/a17e8a4d9a1f7fcc5eed606721c9ed6b7f18acf7/standard-1.1.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/gradle_user_home/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.8.9/569b1752705da98f49aabe2911cc956ff7d8ed9d/jackson-core-2.8.9.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/gradle_user_home/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.9/4dfca3975be3c1a98eacb829e70f02e9a71bc159/jackson-databind-2.8.9.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/gradle_user_home/caches/modules-2/files-2.1/commons-dbcp/commons-dbcp/1.2.2/4fd4c6110e9bca3a655b717eb2e5920febb8403d/commons-dbcp-1.2.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/gradle_user_home/caches/modules-2/files-2.1/com.microsoft.sqlserver/sqljdbc4/4.0/ecc4bc5c567954cdd1acd3c5985555c8d0355bb0/sqljdbc4-4.0.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/gradle_user_home/caches/modules-2/files-2.1/org.springframework/spring-aop/4.2.3.RELEASE/6384a57a024df03bfcb1eeccd3d820da98125b92/spring-aop-4.2.3.RELEASE.jar">
@@ -33,6 +54,12 @@
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/gradle_user_home/caches/modules-2/files-2.1/org.springframework/spring-expression/4.2.3.RELEASE/67b064c726c276436387c7a183a49deda153a6cc/spring-expression-4.2.3.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/gradle_user_home/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.8.0/45b426f7796b741035581a176744d91090e2e6fb/jackson-annotations-2.8.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/gradle_user_home/caches/modules-2/files-2.1/commons-pool/commons-pool/1.3/3231230c1d7631b66a74d1c4653cfd65a6f9ea0/commons-pool-1.3.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/gradle_user_home/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar">
