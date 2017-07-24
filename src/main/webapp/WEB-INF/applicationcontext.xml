@@ -21,7 +21,7 @@
  	<mvc:annotation-driven />  
 	
 	<!--  <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />  
-    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"></bean>-->	
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"></bean>	
         
      <bean id="dataSource" name="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 	    <property name="driverClassName" value="com.microsoft.sqlserver.SQLServerDriver"/>
@@ -35,7 +35,7 @@
 	    <property name="removeAbandoned" value="true"/>
 	    <property name="removeAbandonedTimeout" value="60"/>
 	    <property name="logAbandoned" value="true"/>	    
-  	</bean>
+  	</bean>-->
         
      <bean id="dataSource" name="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 	    <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
