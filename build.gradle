@@ -35,7 +35,9 @@ dependencies {
 dependencies{
 	compile group: 'org.springframework', name: 'spring-context', version: '4.2.3.RELEASE'
 	compile group: 'org.springframework', name: 'spring-web', version: '4.2.3.RELEASE'
-	compile group: 'org.springframework', name: 'spring-webmvc', version: '4.2.3.RELEASE'	
+	compile group: 'org.springframework', name: 'spring-webmvc', version: '4.2.3.RELEASE'
+	compile group: 'org.springframework', name: 'spring-tx', version: '4.2.3.RELEASE'
+	compile group: 'org.springframework', name: 'spring-jdbc', version: '4.2.3.RELEASE'	
 	compile group: 'org.mybatis', name: 'mybatis', version: '3.2.6'
 	compile group: 'org.mybatis', name: 'mybatis-spring', version: '1.2.2'
 	compile group: 'javax.servlet.jsp.jstl', name: 'jstl', version: '1.2'
