@@ -34,7 +34,7 @@ dependencies {
 
 dependencies{
 	compile group: 'org.springframework', name: 'spring-context', version: '4.2.3.RELEASE'
-	compile group: 'org.springframework', name: 'spring-web', version: '4.2.3.RELEASE'
+	//compile group: 'org.springframework', name: 'spring-web', version: '4.2.3.RELEASE'
 	compile group: 'org.springframework', name: 'spring-webmvc', version: '4.2.3.RELEASE'
 	compile group: 'org.springframework', name: 'spring-tx', version: '4.2.3.RELEASE'
 	compile group: 'org.springframework', name: 'spring-jdbc', version: '4.2.3.RELEASE'	
