@@ -1,8 +1,5 @@
 package com.abc.usermanage.control;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +26,7 @@ public class UserControl
 //		mapResult.put("item", "测试成功");
 //		return "测试成功，我来了！";
 		
-		List<User> lstUser = new ArrayList<User>();
+//		List<User> lstUser = new ArrayList<User>();
 //		User user = new User();
 //		user.setUserId(UUID.randomUUID().toString());
 //		user.setUserName("admin");
@@ -45,6 +42,7 @@ public class UserControl
 //		lstUser.add(user);
 		
 		User queryUser = new User();
+//		queryUser.setUserName("user");
 		
 		int startIndex = pageSize * (pageIndex - 1) + 1;
 		int endIndex = startIndex + pageSize - 1;

@@ -8,11 +8,23 @@
         <result property="userType" column="UserType" />
         <result property="description" column="Description" />
     </resultMap>
-    <select id="queryUserList" resultMap="UserResult" parameterType="int">
-    SELECT * FROM (SELECT ROW_NUMBER()OVER(ORDER BY u.RegisterTime) AS RowNumber, u.* FROM Tbl_User u) tmp
-    WHERE RowNumber BETWEEN #{1} AND #{2}
+    <select id="queryUserList" resultMap="UserResult">
+    SELECT * FROM (
+    	SELECT ROW_NUMBER()OVER(ORDER BY u.RegisterTime) AS RowNumber, u.* FROM Tbl_User u
+    	<where>
+    		<if  test="queryUser.userName != null">
+    			u.UserName like '%'+#{queryUser.userName}+'%'
+    		</if>
+    	</where>
+    ) tmp
+    WHERE RowNumber BETWEEN #{startIndex} AND #{endIndex}
     </select>
-    <select id="getUserCount" parameterType="User" resultType="int">
+    <select id="getUserCount" resultType="int">
      SELECT COUNT(*) FROM Tbl_User
+     <where>
+     	<if test="queryUser.userName != null">
+    		UserName like '%'+#{queryUser.userName}+'%'
+    	</if>
+     </where>
      </select>
 </mapper>
