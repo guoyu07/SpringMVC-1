@@ -24,6 +24,9 @@ public class UserBizImpl implements UserBiz
 	@Override
 	public List<User> queryUserList(User queryUser, int startIndex, int endIndex) throws Exception
 	{
+//		PageHelper pageHelper = new PageHelper();
+//		Page<Student> page = PageHelper.startPage(pageNum, pageSize);
+		
 		return this.userDataMapper.queryUserList(queryUser, startIndex, endIndex);
 	}
 	
