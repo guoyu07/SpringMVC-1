@@ -9,5 +9,6 @@
 <script language="javascript" type="text/javascript" src="${ctx}/js/jquery/jquery-easyui-1.2.1/locale/easyui-lang-zh_CN.js"></script>
 <script language="javascript" type="text/javascript" src="${ctx}/js/index.js"></script>-->
 <script language="javascript" type="text/javascript" src="${ctx}/js/Vue/vue.js"></script>
-<script src="//unpkg.com/element-ui@1.4.0/lib/index.js"></script>
-<link rel="stylesheet" type="text/css" href="//unpkg.com/element-ui@1.4.0/lib/theme-default/index.css" />
+<!--  <script src="//unpkg.com/element-ui@1.4.0/lib/index.js"></script>-->
+<script language="javascript" type="text/javascript" src="${ctx}/js/Element/Element-UI-1.4.0.js"></script>
+<link rel="stylesheet" type="text/css" href="${ctx}/css/Element-UI-1.4.0.css" />
