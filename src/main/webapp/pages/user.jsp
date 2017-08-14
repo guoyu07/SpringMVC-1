@@ -71,7 +71,9 @@
 //			}
 //		  //}
 //		});
-    
+
+const axiostool require('axiosconfig')
+
 var vm = new Vue({
 	el: '#app',
 	data:{
