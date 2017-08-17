@@ -21,8 +21,9 @@
  	<mvc:annotation-driven />  
 	
 	<!--  <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />  
-    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"></bean>	
-        
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"></bean>-->	
+     
+     <!-- OFFICE
      <bean id="dataSource" name="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 	    <property name="driverClassName" value="com.microsoft.sqlserver.SQLServerDriver"/>
 	    <property name="url" value="jdbc:sqlserver://localhost:1433;DatabaseName=CECM"/>
@@ -37,14 +38,26 @@
 	    <property name="logAbandoned" value="true"/>	    
   	</bean>-->
         
-     <bean id="dataSource" name="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    <!-- HOME
+    <bean id="dataSource" name="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
 	    <property name="url" value="jdbc:sqlserver://localhost:1433;DatabaseName=swezki"/>
 	    <property name="username" value="sa"/>
 	    <property name="password" value="123456"/>
-	    <!--<property name="url" value="jdbc:sqlserver://localhost:1433;DatabaseName=CECM"/>
-	    <property name="username" value="sa"/>
-	    <property name="password" value="booway2017"/>-->
+	    <property name="maxActive" value="300"/>
+	    <property name="maxIdle" value="50"/>
+	    <property name="maxWait" value="50000"/>
+	    <property name="defaultAutoCommit" value="true"/>
+	    <property name="removeAbandoned" value="true"/>
+	    <property name="removeAbandonedTimeout" value="60"/>
+	    <property name="logAbandoned" value="true"/>	    
+  	</bean>-->  	
+   
+    <bean id="dataSource" name="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+	    <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+	    <property name="username" value="RESOURCE_ADMIN"/>
+	    <property name="password" value="RESOURCE_ADMIN"/>	  
 	    <property name="maxActive" value="300"/>
 	    <property name="maxIdle" value="50"/>
 	    <property name="maxWait" value="50000"/>
@@ -53,7 +66,7 @@
 	    <property name="removeAbandonedTimeout" value="60"/>
 	    <property name="logAbandoned" value="true"/>	    
   	</bean>
-  	
+  	  		 	  	
   	<tx:annotation-driven transaction-manager="transactionManager" />
   	
   	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> 

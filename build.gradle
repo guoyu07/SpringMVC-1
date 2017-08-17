@@ -51,6 +51,8 @@ dependencies{
 	
 	compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.2.2'
 	compile group: 'com.microsoft.sqlserver', name: 'sqljdbc4', version: '4.0'
-	//compile files('lib/sqljdbc41.jar')
+	
+	// compile group: 'com.oracle', name: 'ojdbc14', version: '10.2.0.4.0'
+	// compile files('web-info/lib/Oracle10g.jar')
 }
 

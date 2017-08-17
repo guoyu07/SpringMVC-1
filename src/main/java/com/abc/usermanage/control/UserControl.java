@@ -18,7 +18,7 @@ public class UserControl
 	@Autowired
 	private UserBiz userBiz;
 	
-	@RequestMapping(value="/test",method=RequestMethod.GET)
+	@RequestMapping(value="/test",method=RequestMethod.POST)
 	@ResponseBody
 	public QueryResultObject test(@RequestParam int pageIndex, @RequestParam int pageSize) throws Exception 
 	{

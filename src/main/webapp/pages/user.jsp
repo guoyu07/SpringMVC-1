@@ -72,8 +72,6 @@
 //		  //}
 //		});
 
-const axiostool require('axiosconfig')
-
 var vm = new Vue({
 	el: '#app',
 	data:{
@@ -88,19 +86,31 @@ var vm = new Vue({
 		{
 			_self = this;
 			this.isLoadingData = true;
-			$.ajax({
-			    url:"../UserControl/test?pageIndex=" + currentPageIndex+ "&pageSize=" + pageSize,
-			    dataType:'json',
-			    success:function(result){
-			    	_self.tableData = result.itemList;
-			    	_self.itemCount = result.totalItemCount;
-			    	_self.isLoadingData = false;
-			    },
-			    error:function(){
-			    	_self.isLoadingData = false;
-			        alert("请求失败");
-			    }
-			});				
+//			$.ajax({
+//			    url:"../UserControl/test?pageIndex=" + currentPageIndex+ "&pageSize=" + pageSize,
+//			    dataType:'json',
+//			    success:function(result){
+//			    	_self.tableData = result.itemList;
+//			    	_self.itemCount = result.totalItemCount;
+//			    	_self.isLoadingData = false;
+//			    },
+//			    error:function(){
+//			    	_self.isLoadingData = false;
+//			        alert("请求失败");
+//			    }
+//			});
+
+			axios.post("/SpringMVC/UserControl/test?pageIndex=" + currentPageIndex + "&pageSize=" + pageSize)
+				  .then(function (response) {
+				    _self.tableData = response.data.itemList;
+				    _self.itemCount = response.data.totalItemCount;
+				    _self.isLoadingData = false;
+				    console.info(response);
+				  })
+				  .catch(function (error) {
+					 _self.isLoadingData = false;
+				    console.error(error);
+				  });
 		},
 		handleCurrentChange: function(val)
 		{
