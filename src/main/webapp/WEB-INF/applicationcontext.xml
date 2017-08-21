@@ -38,7 +38,7 @@
 	    <property name="logAbandoned" value="true"/>	    
   	</bean>-->
         
-    <!-- HOME
+    <!-- HOME-->  
     <bean id="dataSource" name="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
 	    <property name="url" value="jdbc:sqlserver://localhost:1433;DatabaseName=swezki"/>
@@ -51,8 +51,9 @@
 	    <property name="removeAbandoned" value="true"/>
 	    <property name="removeAbandonedTimeout" value="60"/>
 	    <property name="logAbandoned" value="true"/>	    
-  	</bean>-->  	
+  	</bean>	
    
+    <!--  Work's notpad
     <bean id="dataSource" name="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
 	    <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
@@ -65,7 +66,7 @@
 	    <property name="removeAbandoned" value="true"/>
 	    <property name="removeAbandonedTimeout" value="60"/>
 	    <property name="logAbandoned" value="true"/>	    
-  	</bean>
+  	</bean>-->
   	  		 	  	
   	<tx:annotation-driven transaction-manager="transactionManager" />
   	

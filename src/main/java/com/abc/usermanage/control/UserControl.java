@@ -48,8 +48,8 @@ public class UserControl
 		User queryUser = new User();
 //		queryUser.setUserName("user");
 		
-		int pageSize = 10;
-		int pageIndex = 1;
+		int pageSize = Integer.parseInt(MapParam.get("pageSize").toString());
+		int pageIndex = Integer.parseInt(MapParam.get("pageIndex").toString());
 		int startIndex = pageSize * (pageIndex - 1) + 1;
 		int endIndex = startIndex + pageSize - 1;
 		
