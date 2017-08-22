@@ -2,9 +2,9 @@ package com.abc.usermanage.biz;
 
 import java.util.List;
 
-import com.abc.usermanage.model.User;
+import com.abc.usermanage.model.AccountInfo;
 
-public interface UserBiz 
+public interface AccountBiz 
 {
 	/**
 	 * 查询符合条件用户记录数
@@ -12,7 +12,7 @@ public interface UserBiz
 	 * @return 符合条件用户记录总数
 	 * @throws Exception 异常信息
 	 */
-	int getUserCount(User queryUser) throws Exception;
+	int getAccountCount(AccountInfo queryUser) throws Exception;
 	
 	/**
 	 * 查询符合条件用户列表
@@ -22,5 +22,5 @@ public interface UserBiz
 	 * @return 符合条件用户列表
 	 * @throws Exception 异常信息
 	 */
-	List<User> queryUserList(User queryUser,int startIndex, int endIndex) throws Exception;
+	List<AccountInfo> queryAccountList(AccountInfo queryUser,int startIndex, int endIndex) throws Exception;
 }

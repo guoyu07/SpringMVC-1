@@ -7,19 +7,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.abc.usermanage.biz.UserBiz;
-import com.abc.usermanage.model.User;
+import com.abc.usermanage.biz.AccountBiz;
+import com.abc.usermanage.model.AccountInfo;
 import com.abc.usermanage.util.QueryResultObject;
 
 @Controller
-@RequestMapping("/UserControl")
-public class UserControl 
+@RequestMapping("/AccountControl")
+public class AccountControl 
 {
 	@Autowired
-	private UserBiz userBiz;
+	private AccountBiz accountBiz;
 	
 	@RequestMapping(value="/test",method=RequestMethod.POST)
 	@ResponseBody
@@ -45,7 +44,7 @@ public class UserControl
 //		user.setUserType("∆’Õ®”√ªß");
 //		lstUser.add(user);
 		
-		User queryUser = new User();
+		AccountInfo queryUser = new AccountInfo();
 //		queryUser.setUserName("user");
 		
 		int pageSize = Integer.parseInt(MapParam.get("pageSize").toString());
@@ -54,8 +53,8 @@ public class UserControl
 		int endIndex = startIndex + pageSize - 1;
 		
 		QueryResultObject queryResultObj = new QueryResultObject();
-		queryResultObj.setItemList(this.userBiz.queryUserList(queryUser, startIndex, endIndex));
-		queryResultObj.setTotalItemCount(this.userBiz.getUserCount(queryUser));
+		queryResultObj.setItemList(this.accountBiz.queryAccountList(queryUser, startIndex, endIndex));
+		queryResultObj.setTotalItemCount(this.accountBiz.getAccountCount(queryUser));
 		
 		return queryResultObj;
 	}	
