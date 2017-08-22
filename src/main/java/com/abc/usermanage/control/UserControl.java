@@ -1,7 +1,10 @@
 package com.abc.usermanage.control;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,10 +21,11 @@ public class UserControl
 	@Autowired
 	private UserBiz userBiz;
 	
-	@RequestMapping(value="/test",method=RequestMethod.GET)
+	@RequestMapping(value="/test",method=RequestMethod.POST)
 	@ResponseBody
-	public QueryResultObject test(@RequestParam int pageIndex, @RequestParam int pageSize) throws Exception 
+	public QueryResultObject test(@RequestBody Map MapParam) throws Exception 
 	{
+//		@RequestParam int pageIndex, @RequestParam int pageSize
 //		Map<String, String> mapResult = new HashMap<String, String>();
 //		mapResult.put("item", "测试成功");
 //		return "测试成功，我来了！";
@@ -44,6 +48,8 @@ public class UserControl
 		User queryUser = new User();
 //		queryUser.setUserName("user");
 		
+		int pageSize = Integer.parseInt(MapParam.get("pageSize").toString());
+		int pageIndex = Integer.parseInt(MapParam.get("pageIndex").toString());
 		int startIndex = pageSize * (pageIndex - 1) + 1;
 		int endIndex = startIndex + pageSize - 1;
 		

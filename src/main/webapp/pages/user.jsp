@@ -13,7 +13,7 @@
   <body>
 	<div id="app">
 		<template>
-		    <el-table :data="tableData" width="500px" border>
+		    <el-table :data="tableData" width="500px" border v-loading="isLoadingData">
 		      <el-table-column prop="userName" label="用户名" width="180">
 		      </el-table-column>
 		      <el-table-column prop="userType" label="用户类型" width="180">
@@ -32,7 +32,8 @@
       			:page-sizes="[5, 10, 20, 50, 100]"
       			:page-size="pageSize"
       			layout="total, sizes, prev, pager, next, jumper"
-      			:total="itemCount">
+      			:total="itemCount"
+      			style="float:right;">
     	</el-pagination>
 	</div>
   </body>
@@ -70,30 +71,46 @@
 //			}
 //		  //}
 //		});
-    
+
 var vm = new Vue({
 	el: '#app',
 	data:{
 		tableData: [],
 		itemCount: 0,
 		pageSize: 10,
-		currentPage: 1
+		currentPage: 1,
+		isLoadingData:false
 	},
 	methods:{
 		loadData:function(currentPageIndex, pageSize)
 		{
 			_self = this;
-			$.ajax({
-			    url:"../UserControl/test?pageIndex=" + currentPageIndex+ "&pageSize=" + pageSize,
-			    dataType:'json',
-			    success:function(result){
-			    	_self.tableData = result.itemList;
-			    	_self.itemCount = result.totalItemCount;
-			    },
-			    error:function(){
-			        alert("请求失败");
-			    }
-			});				
+			this.isLoadingData = true;
+//			$.ajax({
+//			    url:"../UserControl/test?pageIndex=" + currentPageIndex+ "&pageSize=" + pageSize,
+//			    dataType:'json',
+//			    success:function(result){
+//			    	_self.tableData = result.itemList;
+//			    	_self.itemCount = result.totalItemCount;
+//			    	_self.isLoadingData = false;
+//			    },
+//			    error:function(){
+//			    	_self.isLoadingData = false;
+//			        alert("请求失败");
+//			    }
+//			});
+
+			axios.post("/SpringMVC/UserControl/test", {pageIndex: currentPageIndex, pageSize: pageSize})
+				  .then(function (response) {
+				    _self.tableData = response.data.itemList;
+				    _self.itemCount = response.data.totalItemCount;
+				    _self.isLoadingData = false;
+				    console.info(response);
+				  })
+				  .catch(function (error) {
+					 _self.isLoadingData = false;
+				    console.error(error);
+				  });
 		},
 		handleCurrentChange: function(val)
 		{

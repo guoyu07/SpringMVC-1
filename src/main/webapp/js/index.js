@@ -1,8 +1,11 @@
-String.prototype.trim = function(){
-	var t = this.replace(/(^\s*)|(\s*$)/g,""); 
-	return t.replace(/(^\u3000*)|(\u3000*$)/g,"");
+'use strict';
+
+var stringify = require('stringify');
+var parse = require('parse');
+var formats = require('formats');
+
+module.exports = {
+    formats: formats,
+    parse: parse,
+    stringify: stringify
 };
-function killErrors(){
-	return true;
-}
-//window.onerror = killErrors;
