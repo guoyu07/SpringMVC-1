@@ -14,13 +14,19 @@
 	<div id="app">
 		<template>
 		    <el-table :data="tableData" width="500px" border v-loading="isLoadingData">
-		      <el-table-column prop="userName" label="用户名" width="180">
+		      <el-table-column prop="loginName" label="登录帐户" width="180">
 		      </el-table-column>
-		      <el-table-column prop="userType" label="用户类型" width="180">
+		      <el-table-column prop="name" label="用户姓名" width="180">
 		      </el-table-column>
-		      <el-table-column prop="password" label="密码">
+		      <el-table-column prop="email" label="email">
 		      </el-table-column>
-		      <el-table-column prop="description" label="描述">
+		      <el-table-column prop="officePhone" label="办公室电话">
+		      </el-table-column>
+		      <el-table-column prop="mobilePhone" label="移动电话">
+		      </el-table-column>
+		      <el-table-column prop="dataState" label="帐户状态">
+		      </el-table-column>
+		      <el-table-column prop="createTime" label="创建时间">
 		      </el-table-column>
 		    </el-table>
 		  </template>
