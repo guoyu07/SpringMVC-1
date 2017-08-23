@@ -1,14 +1,11 @@
-requirejs.config({
-		baseUrl: "js",
+require.config({
+		baseUrl: "./js/",
         paths: {
-          axios: 'axios.min'
+          "es6-promise": 'es6-promise'
         },
-        shim: {
-      　　　　　　'axiosconfig': {
-      　　　　　　　　deps: ['axios', 'qs'],
-      　　　　　　　　exports: 'axiosconfig'
-      　　　　　　}
-      　　　　}		
+        shim:{   
+            "es6-promise":{  
+                "exports":"_"  
+            }  
+        }  
       });
-
-alert('here');

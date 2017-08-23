@@ -46,6 +46,8 @@
   </body>
 </html>
 
+
+<script language="javascript" type="text/javascript" src="${ctx}/js/axiosconfig.js"></script>
 	<script type="text/javascript">
 //		jQuery.ajaxSetup({cache:false});//ajax不缓存
 //	//	jQuery(function($){
