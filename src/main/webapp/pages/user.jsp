@@ -26,7 +26,8 @@
 		      </el-table-column>
 		      <el-table-column prop="dataState" label="帐户状态">
 		      </el-table-column>
-		      <el-table-column prop="createTime" label="创建时间">
+		      <el-table-column prop="createTime" label="创建时间"
+		      :formatter="dateFormate">
 		      </el-table-column>
 		    </el-table>
 		  </template>
@@ -129,6 +130,14 @@ var vm = new Vue({
 			this.pageSize = val;
 			vm.loadData(this.currentPage, val);
 		},
+		 //时间格式化
+        dateFormate:function(row, column) {
+	           var date = row[column.property];
+		      if (date == undefined) {
+		         return "";
+		      }
+		      return moment(date).format("YYYY-MM-DD");
+        }
 	}
 });
 

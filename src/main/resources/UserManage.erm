@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2017-08-22 15:46:04</creation_date>
-			<updated_date>2017-08-22 19:09:06</updated_date>
+			<updated_date>2017-08-23 09:01:26</updated_date>
 			<model_property>
 				<name>Project Name</name>
 				<value></value>
@@ -309,7 +309,7 @@
 			<char_semantics>false</char_semantics>
 			<description>数据项状态</description>
 			<logical_name>数据项状态</logical_name>
-			<physical_name>DateState</physical_name>
+			<physical_name>DataState</physical_name>
 			<type>varchar(n)</type>
 		</word>
 		<word>
@@ -325,7 +325,7 @@
 			<char_semantics>false</char_semantics>
 			<description>数据项状态</description>
 			<logical_name>数据项状态</logical_name>
-			<physical_name>DateState</physical_name>
+			<physical_name>DataState</physical_name>
 			<type>varchar(n)</type>
 		</word>
 		<word>
@@ -986,7 +986,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>17</word_id>
+					<word_id>18</word_id>
 					<id>7</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1085,7 +1085,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>33</word_id>
+					<word_id>32</word_id>
 					<id>10</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1413,7 +1413,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>16</word_id>
+					<word_id>17</word_id>
 					<id>19</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1479,7 +1479,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>32</word_id>
+					<word_id>33</word_id>
 					<id>21</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1708,7 +1708,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>18</word_id>
+					<word_id>16</word_id>
 					<id>27</id>
 					<description></description>
 					<unique_key_name></unique_key_name>

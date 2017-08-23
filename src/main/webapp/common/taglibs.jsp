@@ -6,4 +6,5 @@
 <script language="javascript" type="text/javascript" src="${ctx}/js/Element/Element-UI-1.4.0.js"></script>
 <script language="javascript" type="text/javascript" src="${ctx}/js/axios.min.js"></script>
 <script language="javascript" type="text/javascript" src="${ctx}/js/axiosconfig.js"></script>
+<script language="javascript" type="text/javascript" src="${ctx}/js/moment.js"></script>
 <link rel="stylesheet" type="text/css" href="${ctx}/css/Element-UI-1.4.0.css" />

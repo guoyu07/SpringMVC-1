@@ -17,7 +17,7 @@
     </resultMap>
     <select id="queryAccountList" resultMap="AccountResult">
     SELECT * FROM (
-    	SELECT ROW_NUMBER() OVER(ORDER BY u.ShowOrder Desc) AS RowNumber, u.* FROM uam_Account u
+    	SELECT ROW_NUMBER() OVER(ORDER BY u.ShowOrder) AS RowNumber, u.* FROM uam_Account u
     	<where>
     		<if  test="queryAccount.LoginName != '' and queryAccount.LoginName != null">
     			u.LoginName like '%' || #{queryAccount.loginName} || '%'
