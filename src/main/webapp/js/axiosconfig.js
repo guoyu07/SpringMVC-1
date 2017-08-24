@@ -1,6 +1,6 @@
 //alert('here1');
 //var axios = require('axios')
-//var qs = require('qs')
+var qs = require('qs');
 
 // import * as _ from 'tool'
 axios.defaults.timeout = 5000;                        //响应时间
@@ -9,8 +9,8 @@ axios.defaults.baseURL = 'http://localhost:8080';   //配置接口地址
 //POST传参序列化(添加请求拦截器)
 axios.interceptors.request.use(function(config){
 	//在发送请求之前做某件事
-    if(config.method  === 'post'){
-    	//config.data = qs.stringify(config.data);
+    if(config.method === 'get'){
+    	config.data = qs.stringify(config.data);
     }
     return config;
 },function(error){
