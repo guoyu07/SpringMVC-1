@@ -7,22 +7,22 @@ import org.apache.ibatis.annotations.Param;
 import com.abc.usermanage.model.AccountInfo;
 
 public interface AccountDataMapper 
-{
+{	
 	/**
-	 * ²éÑ¯·ûºÏÌõ¼şÓÃ»§¼ÇÂ¼Êı
-	 * @param AccountInfo ²éÑ¯ÓÃ»§Ìõ¼ş¶ÔÏó
-	 * @return ·ûºÏÌõ¼şÓÃ»§¼ÇÂ¼×ÜÊı
-	 * @throws Exception Òì³£ĞÅÏ¢
+	 * æŸ¥è¯¢ç¬¦åˆæ¡ä»¶ç”¨æˆ·è®°å½•æ•°
+	 * @param AccountInfo æŸ¥è¯¢ç”¨æˆ·æ¡ä»¶å¯¹è±¡
+	 * @return ç¬¦åˆæ¡ä»¶ç”¨æˆ·è®°å½•æ€»æ•°
+	 * @throws Exception å¼‚å¸¸ä¿¡æ¯
 	 */
 	int getAccountCount(@Param(value="queryAccount") AccountInfo AccountInfo) throws Exception;
 	
 	/**
-	 * ²éÑ¯·ûºÏÌõ¼şÓÃ»§ÁĞ±í
-	 * @param queryAccount ²éÑ¯ÓÃ»§Ìõ¼ş¶ÔÏó
-	 * @param startIndex ÆğÊ¼ĞĞË÷Òı
-	 * @param endIndex ½áÊøĞĞË÷Òı
-	 * @return ·ûºÏÌõ¼şÓÃ»§ÁĞ±í
-	 * @throws Exception Òì³£ĞÅÏ¢
+	 * æŸ¥è¯¢ç¬¦åˆæ¡ä»¶ç”¨æˆ·åˆ—è¡¨
+	 * @param queryAccount æŸ¥è¯¢ç”¨æˆ·æ¡ä»¶å¯¹è±¡
+	 * @param startIndex èµ·å§‹è¡Œç´¢å¼•
+	 * @param endIndex ç»“æŸè¡Œç´¢å¼•
+	 * @return ç¬¦åˆæ¡ä»¶ç”¨æˆ·åˆ—è¡¨
+	 * @throws Exception å¼‚å¸¸ä¿¡æ¯
 	 */
 	List<AccountInfo> queryAccountList(@Param(value="queryAccount") AccountInfo queryAccount,@Param(value="startIndex") int startIndex, @Param(value="endIndex") int endIndex) throws Exception;
 }
