@@ -53,15 +53,15 @@
         this.$refs.ruleForm2.resetFields();
       },
       handleSubmit2:function(ev) {
-        var _this = this;
+        var self = this;
         this.$refs.ruleForm2.validate(function(valid){
           if (valid) {
             //_this.$router.replace('/table');
             this.logining = true;
             //NProgress.start();
-            var loginParams = { username: this.ruleForm2.account, password: this.ruleForm2.checkPass };
+            var loginParams = { username: self.ruleForm2.account, password: self.ruleForm2.checkPass };
             requestLogin(loginParams).then(function(data){
-              this.logining = false;
+            	self.logining = false;
               //NProgress.done();
               //let { msg, code, user } = data;
               if (code !== 200) {
