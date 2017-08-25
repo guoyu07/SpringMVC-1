@@ -80,11 +80,12 @@
       
     <!--   
     ③：对模型视图名称的解析，即在模型视图名称添加前后缀  
-    InternalResourceViewResolver默认的就是JstlView所以这里就不用配置viewClass了   
+    InternalResourceViewResolver默认的就是JstlView所以这里就不用配置viewClass了    
       
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
-        <property name="prefix" value="/WEB-INF/view/"></property>  
+        <!--  <property name="prefix" value="/WEB-INF/view/"></property>-->  
         <property name="suffix" value=".jsp"></property>  
-    </bean> 
-    -->      
+    </bean>
+    --> 
+        
 </beans>   
