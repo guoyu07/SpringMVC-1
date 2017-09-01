@@ -12,7 +12,7 @@
 	<category_index>0</category_index>
 	<zoom>1.0</zoom>
 	<x>0</x>
-	<y>0</y>
+	<y>5</y>
 	<default_color>
 		<r>128</r>
 		<g>128</g>
@@ -26,7 +26,7 @@
 	<font_name>Microsoft YaHei UI</font_name>
 	<font_size>9</font_size>
 	<settings>
-		<database>SQLServer</database>
+		<database>MySQL</database>
 		<capital>false</capital>
 		<table_style></table_style>
 		<notation></notation>
@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2017-08-22 15:46:04</creation_date>
-			<updated_date>2017-08-23 09:01:26</updated_date>
+			<updated_date>2017-09-01 20:30:18</updated_date>
 			<model_property>
 				<name>Project Name</name>
 				<value></value>
@@ -159,6 +159,10 @@
 		</model_properties>
 		<table_properties>
 			<schema></schema>
+			<character_set></character_set>
+			<collation></collation>
+			<storage_engine></storage_engine>
+			<primary_key_length_of_text>null</primary_key_length_of_text>
 		</table_properties>
 		<environment_setting>
 			<environment>
@@ -246,7 +250,7 @@
 			<description>创建时间</description>
 			<logical_name>创建时间</logical_name>
 			<physical_name>CreateTime</physical_name>
-			<type>timestamp</type>
+			<type>datetime</type>
 		</word>
 		<word>
 			<id>5</id>
@@ -262,7 +266,7 @@
 			<description>创建时间</description>
 			<logical_name>创建时间</logical_name>
 			<physical_name>CreateTime</physical_name>
-			<type>timestamp</type>
+			<type>datetime</type>
 		</word>
 		<word>
 			<id>6</id>
@@ -278,7 +282,7 @@
 			<description>创建时间</description>
 			<logical_name>创建时间</logical_name>
 			<physical_name>CreateTime</physical_name>
-			<type>timestamp</type>
+			<type>datetime</type>
 		</word>
 		<word>
 			<id>7</id>
@@ -438,7 +442,7 @@
 			<description>上次更新时间</description>
 			<logical_name>上次更新时间</logical_name>
 			<physical_name>LastUpdateTime</physical_name>
-			<type>timestamp</type>
+			<type>datetime</type>
 		</word>
 		<word>
 			<id>17</id>
@@ -454,7 +458,7 @@
 			<description>上次更新时间</description>
 			<logical_name>上次更新时间</logical_name>
 			<physical_name>LastUpdateTime</physical_name>
-			<type>timestamp</type>
+			<type>datetime</type>
 		</word>
 		<word>
 			<id>18</id>
@@ -986,13 +990,13 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>18</word_id>
+					<word_id>17</word_id>
 					<id>7</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
-					<type>timestamp</type>
+					<type>datetime</type>
 					<constraint></constraint>
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
@@ -1052,13 +1056,13 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>6</word_id>
+					<word_id>4</word_id>
 					<id>9</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
-					<type>timestamp</type>
+					<type>datetime</type>
 					<constraint></constraint>
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
@@ -1124,6 +1128,10 @@
 			</complex_unique_key_list>
 			<table_properties>
 				<schema></schema>
+				<character_set></character_set>
+				<collation></collation>
+				<storage_engine></storage_engine>
+				<primary_key_length_of_text>null</primary_key_length_of_text>
 			</table_properties>
 		</table>
 		<table>
@@ -1413,7 +1421,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>17</word_id>
+					<word_id>18</word_id>
 					<id>19</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1518,7 +1526,7 @@
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
-					<type>timestamp</type>
+					<type>datetime</type>
 					<constraint></constraint>
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
@@ -1551,6 +1559,10 @@
 			</complex_unique_key_list>
 			<table_properties>
 				<schema></schema>
+				<character_set></character_set>
+				<collation></collation>
+				<storage_engine></storage_engine>
+				<primary_key_length_of_text>null</primary_key_length_of_text>
 			</table_properties>
 		</table>
 		<table>
@@ -1714,7 +1726,7 @@
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
-					<type>timestamp</type>
+					<type>datetime</type>
 					<constraint></constraint>
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
@@ -1774,13 +1786,13 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>4</word_id>
+					<word_id>6</word_id>
 					<id>29</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
-					<type>timestamp</type>
+					<type>datetime</type>
 					<constraint></constraint>
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
@@ -1879,6 +1891,10 @@
 			</complex_unique_key_list>
 			<table_properties>
 				<schema></schema>
+				<character_set></character_set>
+				<collation></collation>
+				<storage_engine></storage_engine>
+				<primary_key_length_of_text>null</primary_key_length_of_text>
 			</table_properties>
 		</table>
 		<table>
@@ -2009,6 +2025,10 @@
 			</complex_unique_key_list>
 			<table_properties>
 				<schema></schema>
+				<character_set></character_set>
+				<collation></collation>
+				<storage_engine></storage_engine>
+				<primary_key_length_of_text>null</primary_key_length_of_text>
 			</table_properties>
 		</table>
 	</contents>
