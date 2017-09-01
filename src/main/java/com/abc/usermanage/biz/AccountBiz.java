@@ -1,26 +1,26 @@
-package com.abc.usermanage.biz;
+ï»¿package com.abc.usermanage.biz;
 
 import java.util.List;
 
 import com.abc.usermanage.model.AccountInfo;
 
-public interface AccountBiz 
+public interface AccountBiz
 {
 	/**
-	 * ²éÑ¯·ûºÏÌõ¼şÓÃ»§¼ÇÂ¼Êı
-	 * @param queryUser ²éÑ¯ÓÃ»§Ìõ¼ş¶ÔÏó
-	 * @return ·ûºÏÌõ¼şÓÃ»§¼ÇÂ¼×ÜÊı
-	 * @throws Exception Òì³£ĞÅÏ¢
+	 * æŸ¥è¯¢ç¬¦åˆæ¡ä»¶ç”¨æˆ·è®°å½•æ•°
+	 * @param queryUser æŸ¥è¯¢ç”¨æˆ·æ¡ä»¶å¯¹è±¡
+	 * @return ç¬¦åˆæ¡ä»¶ç”¨æˆ·è®°å½•æ€»æ•°
+	 * @throws Exception å¼‚å¸¸ä¿¡æ¯
 	 */
 	int getAccountCount(AccountInfo queryUser) throws Exception;
 	
 	/**
-	 * ²éÑ¯·ûºÏÌõ¼şÓÃ»§ÁĞ±í
-	 * @param queryUser ²éÑ¯ÓÃ»§Ìõ¼ş¶ÔÏó
-	 * @param startIndex ÆğÊ¼ĞĞË÷Òı
-	 * @param endIndex ½áÊøĞĞË÷Òı
-	 * @return ·ûºÏÌõ¼şÓÃ»§ÁĞ±í
-	 * @throws Exception Òì³£ĞÅÏ¢
+	 * æŸ¥è¯¢ç¬¦åˆæ¡ä»¶ç”¨æˆ·åˆ—è¡¨
+	 * @param queryUser æŸ¥è¯¢ç”¨æˆ·æ¡ä»¶å¯¹è±¡
+	 * @param startIndex èµ·å§‹è¡Œç´¢å¼•
+	 * @param endIndex ç»“æŸè¡Œç´¢å¼•
+	 * @return ç¬¦åˆæ¡ä»¶ç”¨æˆ·åˆ—è¡¨
+	 * @throws Exception å¼‚å¸¸ä¿¡æ¯
 	 */
 	List<AccountInfo> queryAccountList(AccountInfo queryUser,int startIndex, int endIndex) throws Exception;
 }
