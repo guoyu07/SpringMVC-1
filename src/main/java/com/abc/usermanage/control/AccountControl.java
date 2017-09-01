@@ -48,6 +48,7 @@ public class AccountControl
 		AccountInfo queryUser = new AccountInfo();
 //		queryUser.setUserName("user");
 		
+		// 测试
 		int pageSize = Integer.parseInt(MapParam.get("pageSize").toString());
 		int pageIndex = Integer.parseInt(MapParam.get("pageIndex").toString());
 		int startIndex = pageSize * (pageIndex - 1) + 1;
