@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,28 +21,28 @@ public class AccountControl
 	@Autowired
 	private AccountBiz accountBiz;
 	
-	@RequestMapping(value="/test",method=RequestMethod.POST)
+	@RequestMapping(value="/test")
 	@ResponseBody
 	public QueryResultObject test(@RequestBody Map MapParam) throws Exception 
 	{
 //		@RequestParam int pageIndex, @RequestParam int pageSize
 //		Map<String, String> mapResult = new HashMap<String, String>();
-//		mapResult.put("item", "²âÊÔ³É¹¦");
-//		return "²âÊÔ³É¹¦£¬ÎÒÀ´ÁË£¡";
+//		mapResult.put("item", "ï¿½ï¿½ï¿½Ô³É¹ï¿½");
+//		return "ï¿½ï¿½ï¿½Ô³É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½";
 		
 //		List<User> lstUser = new ArrayList<User>();
 //		User user = new User();
 //		user.setUserId(UUID.randomUUID().toString());
 //		user.setUserName("admin");
 //		user.setPassword("123456");
-//		user.setUserType("¹ÜÀíÔ±");
+//		user.setUserType("ï¿½ï¿½ï¿½ï¿½Ô±");
 //		lstUser.add(user);
 //		
 //		user = new User();
 //		user.setUserId(UUID.randomUUID().toString());
 //		user.setUserName("user");
 //		user.setPassword("123456");
-//		user.setUserType("ÆÕÍ¨ÓÃ»§");
+//		user.setUserType("ï¿½ï¿½Í¨ï¿½Ã»ï¿½");
 //		lstUser.add(user);
 		
 		AccountInfo queryUser = new AccountInfo();
