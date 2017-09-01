@@ -1,10 +1,10 @@
-package com.abc.rest.support;
+package com.yngk.rest.support;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ²éÑ¯½á¹û¶ÔÏó
+ * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @author LiuXian
  *
  */
@@ -15,7 +15,7 @@ public class QueryResultObject
 	private List<DicItems> dicItemList = new ArrayList<DicItems>();
 	
 	/**
-	 * Êý¾ÝÏî×ÜÊý
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @return
 	 */
 	public int getItemCount() 
@@ -24,8 +24,8 @@ public class QueryResultObject
 	}
 	
 	/**
-	 * Êý¾ÝÏî×ÜÊý
-	 * @param itemCount Êý¾ÝÏî×ÜÊý
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @param itemCount ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public void setItemCount(int itemCount) 
 	{
@@ -33,8 +33,8 @@ public class QueryResultObject
 	}
 	
 	/**
-	 * Êý¾ÝÏî¼¯ºÏ
-	 * @return Êý¾ÝÏî¼¯ºÏ
+	 * ï¿½ï¿½ï¿½ï¿½î¼¯ï¿½ï¿½
+	 * @return ï¿½ï¿½ï¿½ï¿½î¼¯ï¿½ï¿½
 	 */
 	public List<?> getItemList() 
 	{
@@ -42,8 +42,8 @@ public class QueryResultObject
 	}
 	
 	/**
-	 * Êý¾ÝÏî¼¯ºÏ
-	 * @param itemList Êý¾ÝÏî¼¯ºÏ
+	 * ï¿½ï¿½ï¿½ï¿½î¼¯ï¿½ï¿½
+	 * @param itemList ï¿½ï¿½ï¿½ï¿½î¼¯ï¿½ï¿½
 	 */
 	public void setItemList(List<?> itemList) 
 	{
@@ -51,8 +51,8 @@ public class QueryResultObject
 	}
 	
 	/**
-	 * »ñÈ¡×ÖµäÁÐ±í
-	 * @return »ñÈ¡×ÖµäÁÐ±í
+	 * ï¿½ï¿½È¡ï¿½Öµï¿½ï¿½Ð±ï¿½
+	 * @return ï¿½ï¿½È¡ï¿½Öµï¿½ï¿½Ð±ï¿½
 	 */
 	public List<DicItems> getDicItemList() 
 	{
@@ -60,8 +60,8 @@ public class QueryResultObject
 	}
 	
 	/**
-	 * Ôö¼Ó×Öµä
-	 * @param dicItems ×ÖµäÏî
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½
+	 * @param dicItems ï¿½Öµï¿½ï¿½ï¿½
 	 * @return
 	 */
 	 public QueryResultObject addDicItems(DicItems dicItems)
@@ -71,8 +71,8 @@ public class QueryResultObject
 	 }
 
 	 /**
-	  * Ôö¼Ó×ÖµäÁÐ±í
-	  * @param dicItems ×ÖµäÁÐ±í
+	  * ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ð±ï¿½
+	  * @param dicItems ï¿½Öµï¿½ï¿½Ð±ï¿½
 	  * @return
 	  */
 	 public QueryResultObject addDicItems(List<DicItems> dicItems)

@@ -1,4 +1,4 @@
-package com.abc.usermanage.util;
+package com.yngk.usermanage.util;
 
 import java.util.List;
 

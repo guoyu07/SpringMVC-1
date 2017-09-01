@@ -1,4 +1,4 @@
-package com.abc.usermanage.control;
+package com.yngk.usermanage.control;
 
 import java.util.Map;
 
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.abc.usermanage.biz.AccountBiz;
-import com.abc.usermanage.model.AccountInfo;
-import com.abc.usermanage.util.QueryResultObject;
+import com.yngk.usermanage.biz.AccountBiz;
+import com.yngk.usermanage.model.AccountInfo;
+import com.yngk.usermanage.util.QueryResultObject;
 
 @Controller
 @RequestMapping("/AccountControl")

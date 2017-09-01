@@ -1,4 +1,4 @@
-package com.abc.usermanage.model;
+package com.yngk.usermanage.model;
 
 import java.util.Date;
 

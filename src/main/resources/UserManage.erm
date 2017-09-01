@@ -12,7 +12,7 @@
 	<category_index>0</category_index>
 	<zoom>1.0</zoom>
 	<x>0</x>
-	<y>5</y>
+	<y>117</y>
 	<default_color>
 		<r>128</r>
 		<g>128</g>
@@ -41,8 +41,8 @@
 		<suspend_validator>false</suspend_validator>
 		<export_setting>
 			<export_ddl_setting>
-				<output_path>C:\Users\Booway\Desktop\UserManage.sql</output_path>
-				<encoding>GBK</encoding>
+				<output_path>C:\Users\Jack\Desktop\UserManage.sql</output_path>
+				<encoding>UTF-8</encoding>
 				<line_feed>CR+LF</line_feed>
 				<is_open_after_saved>true</is_open_after_saved>
 				<environment_id>0</environment_id>
@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2017-08-22 15:46:04</creation_date>
-			<updated_date>2017-09-01 20:30:18</updated_date>
+			<updated_date>2017-09-01 20:57:30</updated_date>
 			<model_property>
 				<name>Project Name</name>
 				<value></value>

@@ -1,13 +1,13 @@
-package com.abc.usermanage.biz.impl;
+package com.yngk.usermanage.biz.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.abc.usermanage.biz.AccountBiz;
-import com.abc.usermanage.datamapper.AccountDataMapper;
-import com.abc.usermanage.model.AccountInfo;
+import com.yngk.usermanage.biz.AccountBiz;
+import com.yngk.usermanage.datamapper.AccountDataMapper;
+import com.yngk.usermanage.model.AccountInfo;
 
 @Service
 public class AccountBizImpl implements AccountBiz

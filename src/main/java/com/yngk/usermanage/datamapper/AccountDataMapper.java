@@ -1,10 +1,10 @@
-package com.abc.usermanage.datamapper;
+package com.yngk.usermanage.datamapper;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.abc.usermanage.model.AccountInfo;
+import com.yngk.usermanage.model.AccountInfo;
 
 public interface AccountDataMapper 
 {	

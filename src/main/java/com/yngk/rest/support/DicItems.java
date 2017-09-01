@@ -1,4 +1,4 @@
-package com.abc.rest.support;
+package com.yngk.rest.support;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.Map;
 
 /**
  * 
- * ×Öµä¼¯ºÏ¶ÔÏó
+ * ï¿½Öµä¼¯ï¿½Ï¶ï¿½ï¿½ï¿½
  * @author LiuXian
  *
  */
@@ -16,7 +16,7 @@ public class DicItems
 	private List<Map<String, String>> values = new ArrayList<Map<String, String>>();
 	
 	/**
-	 * ×ÖµäÃû³Æ
+	 * ï¿½Öµï¿½ï¿½ï¿½ï¿½
 	 * @return
 	 */
 	public String getName() 
@@ -25,8 +25,8 @@ public class DicItems
 	}
 	
 	/**
-	 * ×ÖµäÃû³Æ
-	 * @param name ×ÖµäÃû³Æ
+	 * ï¿½Öµï¿½ï¿½ï¿½ï¿½
+	 * @param name ï¿½Öµï¿½ï¿½ï¿½ï¿½
 	 */
 	public void setName(String name) 
 	{
@@ -34,8 +34,8 @@ public class DicItems
 	}
 	
 	/**
-	 * ×ÖµäÖµÁÐ±í
-	 * @return ×ÖµäÖµÁÐ±í
+	 * ï¿½Öµï¿½Öµï¿½Ð±ï¿½
+	 * @return ï¿½Öµï¿½Öµï¿½Ð±ï¿½
 	 */
 	public List<Map<String, String>> getValues() 
 	{
@@ -43,8 +43,8 @@ public class DicItems
 	}
 	
 	/**
-	 * ×ÖµäÖµÁÐ±í
-	 * @param values ×ÖµäÖµÁÐ±í
+	 * ï¿½Öµï¿½Öµï¿½Ð±ï¿½
+	 * @param values ï¿½Öµï¿½Öµï¿½Ð±ï¿½
 	 */
 	public void setValues(List<Map<String, String>> values) 
 	{

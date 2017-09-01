@@ -1,8 +1,8 @@
-﻿package com.abc.usermanage.biz;
+﻿package com.yngk.usermanage.biz;
 
 import java.util.List;
 
-import com.abc.usermanage.model.AccountInfo;
+import com.yngk.usermanage.model.AccountInfo;
 
 public interface AccountBiz
 {
