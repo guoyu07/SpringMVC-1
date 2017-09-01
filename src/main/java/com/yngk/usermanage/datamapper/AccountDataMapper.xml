@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.abc.usermanage.datamapper.AccountDataMapper">
+    <resultMap type="AccountInfo" id="AccountResult">
+        <id property="accountId" column="AccountID" />
+        <result property="loginName" column="LoginName" />
+        <result property="password" column="password" />
+        <result property="name" column="name" />
+        <result property="email" column="email" />
+        <result property="officePhone" column="officePhone" />
+        <result property="mobilePhone" column="mobilePhone" />
+        <result property="lastUpdateTime" column="lastUpdateTime" />
+        <result property="dataState" column="dataState" />
+        <result property="createTime" column="createTime" />
+        <result property="showOrder" column="showOrder" />
+    </resultMap>
+    <select id="queryAccountList" resultMap="AccountResult">
+    SELECT * FROM (
+    	SELECT ROW_NUMBER() OVER(ORDER BY u.ShowOrder) AS RowNumber, u.* FROM uam_Account u
+    	<where>
+    		<if  test="queryAccount.LoginName != '' and queryAccount.LoginName != null">
+    			u.LoginName like '%' || #{queryAccount.loginName} || '%'
+    		</if>
+    	</where>
+    ) tmp
+    WHERE RowNumber BETWEEN #{startIndex} AND #{endIndex}
+    </select>
+    <select id="getAccountCount" resultType="int">
+     SELECT COUNT(*) FROM uam_Account
+     <where>
+     	<if test="queryAccount.LoginName != '' and queryAccount.LoginName != null">
+    		LoginName like '%' || #{queryAccount.loginName} || '%'
+    	</if>
+     </where>
+     </select>
+</mapper>
