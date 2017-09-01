@@ -30,5 +30,12 @@ public class AccountBizImpl implements AccountBiz
 		return this.accountDataMapper.queryAccountList(queryUser, startIndex, endIndex);
 	}
 	
+	/**
+	 * hbhua
+	 */
+	public void testGit()
+	{
+		return;
+	}
 	
 }
