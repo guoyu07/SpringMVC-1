@@ -40,10 +40,10 @@
         
     <!-- HOME -->
     <bean id="dataSource" name="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-	    <property name="url" value="jdbc:sqlserver://localhost:1433;DatabaseName=UserManage"/>
-	    <property name="username" value="sa"/>
-	    <property name="password" value="123456"/>
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+	    <property name="url" value="jdbc:mysql://localhost:3306/yunnan?useUnicode=true&amp;characterEncoding=UTF-8"/>
+	    <property name="username" value="root"/>
+	    <property name="password" value="root"/>
 	    <property name="maxActive" value="300"/>
 	    <property name="maxIdle" value="50"/>
 	    <property name="maxWait" value="50000"/>
