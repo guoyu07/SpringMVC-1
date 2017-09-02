@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.yngk.usermanage.dao.AccountDataMapper">
-    <resultMap type="AccountInfo" id="AccountResult">
+    <resultMap type="com.yngk.usermanage.model.AccountInfo" id="AccountResult">
         <id property="accountId" column="AccountID" />
         <result property="loginName" column="LoginName" />
         <result property="password" column="password" />
