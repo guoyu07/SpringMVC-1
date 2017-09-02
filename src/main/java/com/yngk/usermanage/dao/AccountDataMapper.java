@@ -1,4 +1,4 @@
-package com.yngk.usermanage.datamapper;
+package com.yngk.usermanage.dao;
 
 import java.util.List;
 
