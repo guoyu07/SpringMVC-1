@@ -1,4 +1,4 @@
-package com.yngk.usermanage.control;
+package com.yngk.usermanage.controller;
 
 import java.util.Map;
 
@@ -13,8 +13,8 @@ import com.yngk.usermanage.model.AccountInfo;
 import com.yngk.usermanage.util.QueryResultObject;
 
 @Controller
-@RequestMapping("/AccountControl")
-public class AccountControl
+@RequestMapping("/Account")
+public class AccountController
 {
 	@Autowired
 	private AccountBiz accountBiz;
