@@ -13,9 +13,10 @@
 		http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
 		 http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd"> 
 
+<!--  
 <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 	<property name="mapperInterface" value="com.abc.usermanage.datamapper.AccountDataMapper" />
 	<property name="sqlSessionFactory" ref="sqlSessionFactory" /> 
-</bean>
+</bean>-->
 
 </beans>
