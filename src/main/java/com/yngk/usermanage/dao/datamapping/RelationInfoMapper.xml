@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yngk.usermanage.dao.RelationInfoDao">
+<cache type="com.booway.webstarter.mybatis.cache.BWCacheImpl"/>
+	<resultMap id="BaseResultMap"
+		type="com.yngk.usermanage.model.RelationInfo">
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="main_id" property="mainId" jdbcType="VARCHAR" />
+		<result column="sub_id" property="subId" jdbcType="VARCHAR" />
+		<result column="type" property="type" jdbcType="VARCHAR" />
+		<result column="show_order" property="showOrder" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, main_id, sub_id, type, show_order
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from webstarter_uam_relation
+		where id = #{id,jdbcType=VARCHAR}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from webstarter_uam_relation
+		where id = #{id,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert" parameterType="com.yngk.usermanage.model.RelationInfo">
+		insert into webstarter_uam_relation (id, main_id, sub_id,
+		type, show_order)
+		values (#{id,jdbcType=VARCHAR}, #{mainId,jdbcType=VARCHAR},
+		#{subId,jdbcType=VARCHAR},
+		#{type,jdbcType=VARCHAR}, #{showOrder,jdbcType=INTEGER})
+	</insert>
+	<insert id="insertSelective" parameterType="com.yngk.usermanage.model.RelationInfo">
+		insert into webstarter_uam_relation
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="mainId != null">
+				main_id,
+			</if>
+			<if test="subId != null">
+				sub_id,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+			<if test="showOrder != null">
+				show_order,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=VARCHAR},
+			</if>
+			<if test="mainId != null">
+				#{mainId,jdbcType=VARCHAR},
+			</if>
+			<if test="subId != null">
+				#{subId,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				#{type,jdbcType=VARCHAR},
+			</if>
+			<if test="showOrder != null">
+				#{showOrder,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.yngk.usermanage.model.RelationInfo">
+		update webstarter_uam_relation
+		<set>
+			<if test="mainId != null">
+				main_id = #{mainId,jdbcType=VARCHAR},
+			</if>
+			<if test="subId != null">
+				sub_id = #{subId,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				type = #{type,jdbcType=VARCHAR},
+			</if>
+			<if test="showOrder != null">
+				show_order = #{showOrder,jdbcType=INTEGER},
+			</if>
+		</set>
+		where id = #{id,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.yngk.usermanage.model.RelationInfo">
+		update webstarter_uam_relation
+		set main_id = #{mainId,jdbcType=VARCHAR},
+		sub_id = #{subId,jdbcType=VARCHAR},
+		type = #{type,jdbcType=VARCHAR},
+		show_order = #{showOrder,jdbcType=INTEGER}
+		where id = #{id,jdbcType=VARCHAR}
+	</update>
+	<select id="selectSubIdList" resultType="java.lang.String"
+		parameterType="java.util.Map">
+		select
+		sub_id
+		from webstarter_uam_relation
+		where main_id = #{mainId,jdbcType=VARCHAR} and type=#{type,jdbcType=VARCHAR}
+	</select>
+	<select id="selectMainIdList" resultType="java.lang.String"
+		parameterType="java.util.Map">
+		select
+		main_id
+		from webstarter_uam_relation
+		where sub_id = #{subId,jdbcType=VARCHAR} and type=#{type,jdbcType=VARCHAR}
+	</select>
+	<delete id="deleteByDetail" parameterType="java.util.Map">
+		delete from webstarter_uam_relation
+		<where>
+			<if test="mainId != null">
+				and main_id = #{mainId,jdbcType=VARCHAR}
+			</if>
+			<if test="subId != null">
+				and sub_id = #{subId,jdbcType=VARCHAR}
+			</if>
+			<if test="type != null">
+				and type = #{type,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</delete>
+	
+	<delete id="deleteCollectionAble" parameterType="java.util.Map">
+		delete from webstarter_uam_relation
+		<where>
+			<if test="mainId != null">
+				and main_id = #{mainId,jdbcType=VARCHAR}
+			</if>
+			<if test="subId != null">
+				and sub_id = #{subId,jdbcType=VARCHAR}
+			</if>
+			<if test="subIdList != null">
+				and sub_id IN
+				<foreach item="item" index="index" collection="subIdList"
+					open="(" separator="," close=")">
+					#{item}
+				</foreach>
+			</if>
+			<if test="type != null">
+				and type = #{type,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</delete>
+</mapper>
