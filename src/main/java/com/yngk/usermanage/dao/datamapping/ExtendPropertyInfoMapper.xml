@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yngk.usermanage.dao.ExtendPropertyInfoDao" >
+<!--  <cache type="com.booway.webstarter.mybatis.cache.BWCacheImpl"/>-->
+  <resultMap id="BaseResultMap" type="com.yngk.usermanage.model.ExtendPropertyInfo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="data_state" property="dataState" jdbcType="VARCHAR" />
+    <result column="show_order" property="showOrder" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, type, name, data_state, show_order
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from uam_userextendconfig
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from uam_userextendconfig
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yngk.usermanage.model.ExtendPropertyInfo" >
+    insert into uam_userextendconfig (id, type, name, 
+      data_state, show_order)
+    values (#{id,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{dataState,jdbcType=VARCHAR}, #{showOrder,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yngk.usermanage.model.ExtendPropertyInfo" >
+    insert into uam_userextendconfig
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="dataState != null" >
+        data_state,
+      </if>
+      <if test="showOrder != null" >
+        show_order,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="dataState != null" >
+        #{dataState,jdbcType=VARCHAR},
+      </if>
+      <if test="showOrder != null" >
+        #{showOrder,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yngk.usermanage.model.ExtendPropertyInfo" >
+    update uam_userextendconfig
+    <set >
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="dataState != null" >
+        data_state = #{dataState,jdbcType=VARCHAR},
+      </if>
+      <if test="showOrder != null" >
+        show_order = #{showOrder,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yngk.usermanage.model.ExtendPropertyInfo" >
+    update uam_userextendconfig
+    set type = #{type,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      data_state = #{dataState,jdbcType=VARCHAR},
+      show_order = #{showOrder,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap"  >
+    select 
+    <include refid="Base_Column_List" />
+    from uam_userextendconfig order by show_order
+  </select>
+   <select id="selectListBySate" resultMap="BaseResultMap"  >
+    select 
+    <include refid="Base_Column_List" />
+    from uam_userextendconfig 
+    <where>
+    data_state=#{state,jdbcType=VARCHAR}
+    </where>
+    order by show_order
+  </select>
+</mapper>
