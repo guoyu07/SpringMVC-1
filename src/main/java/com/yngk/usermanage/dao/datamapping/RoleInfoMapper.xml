@@ -20,16 +20,16 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    from webstarter_uam_role
+    from uam_role
     where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from webstarter_uam_role
+    delete from uam_role
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.yngk.usermanage.model.RoleInfo" >
   <![CDATA[
-    insert into webstarter_uam_role (id, name, description, 
+    insert into uam_role (id, name, description, 
       type, code, update_time, 
       data_state, show_order, domain
       )
@@ -40,7 +40,7 @@
   ]]>
   </insert>
   <insert id="insertSelective" parameterType="com.yngk.usermanage.model.RoleInfo" >
-    insert into webstarter_uam_role
+    insert into uam_role
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -101,7 +101,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.yngk.usermanage.model.RoleInfo" >
-    update webstarter_uam_role
+    update uam_role
     <set >
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
@@ -132,7 +132,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.yngk.usermanage.model.RoleInfo" >
     <![CDATA[
-    update webstarter_uam_role
+    update uam_role
     set name = #{name,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},
       type = #{type,jdbcType=VARCHAR},
@@ -145,7 +145,7 @@
      ]]>
   </update>
   <select id="selectListByUserId" resultMap="BaseResultMap" parameterType="java.lang.String" >
-  select  role.*  from webstarter_uam_role role,
+  select  role.*  from uam_role role,
   webstarter_uam_relation relation 
    where role.id=relation.sub_id and 
    relation.main_id=#{id,jdbcType=VARCHAR} and relation.type='userRole'
@@ -154,14 +154,14 @@
    <select id="selectListByState" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    from webstarter_uam_role
+    from uam_role
     where  data_state = #{state,jdbcType=VARCHAR}
     order by show_order
   </select>
    <select id="selectListByType" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    from webstarter_uam_role
+    from uam_role
     where  type = #{type,jdbcType=VARCHAR}
     order by show_order
   </select>
@@ -169,7 +169,7 @@
   <select id="selectRoleByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    from webstarter_uam_role
+    from uam_role
     where  name = #{name,jdbcType=VARCHAR}
     and type='role'
     order by show_order
@@ -178,7 +178,7 @@
    <select id="selectPostByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    from webstarter_uam_role
+    from uam_role
     where  name = #{name,jdbcType=VARCHAR}
     and type='post'
     order by show_order
@@ -196,7 +196,7 @@
   </select>
   
   <sql id="selectRoleByQueryCriteriaSql">
-    from webstarter_uam_role RES 
+    from uam_role RES 
     <where>
     	1 = 1
 	  <if test="id != null" >

@@ -17,16 +17,16 @@
 		parameterType="java.lang.String">
 		select
 		<include refid="Base_Column_List" />
-		from webstarter_uam_extendrelation
+		from uam_extendrelation
 		where id = #{id,jdbcType=VARCHAR}
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-		delete from webstarter_uam_extendrelation
+		delete from uam_extendrelation
 		where id = #{id,jdbcType=VARCHAR}
 	</delete>
 	<insert id="insert"
 		parameterType="com.yngk.usermanage.model.UserExtendRelationInfo">
-		insert into webstarter_uam_extendrelation (id, MAIN_ID, EXPRO_ID,
+		insert into uam_extendrelation (id, MAIN_ID, EXPRO_ID,
 		Name, VALUE)
 		values (#{id,jdbcType=VARCHAR}, #{mainId,jdbcType=VARCHAR},
 		#{exproId,jdbcType=VARCHAR},
@@ -34,7 +34,7 @@
 	</insert>
 	<insert id="insertSelective"
 		parameterType="com.yngk.usermanage.model.UserExtendRelationInfo">
-		insert into webstarter_uam_extendrelation
+		insert into uam_extendrelation
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
 				id,
@@ -72,7 +72,7 @@
 	</insert>
 	<update id="updateByPrimaryKeySelective"
 		parameterType="com.yngk.usermanage.model.UserExtendRelationInfo">
-		update webstarter_uam_extendrelation
+		update uam_extendrelation
 		<set>
 			<if test="mainId != null">
 				MAIN_ID = #{mainId,jdbcType=VARCHAR},
@@ -91,7 +91,7 @@
 	</update>
 	<update id="updateByPrimaryKey"
 		parameterType="com.yngk.usermanage.model.UserExtendRelationInfo">
-		update webstarter_uam_extendrelation
+		update uam_extendrelation
 		set MAIN_ID = #{mainId,jdbcType=VARCHAR},
 		EXPRO_ID = #{exproId,jdbcType=VARCHAR},
 		Name = #{name,jdbcType=VARCHAR},
@@ -102,15 +102,15 @@
 		parameterType="java.lang.String">
 		select
 		<include refid="Base_Column_List" />
-		from webstarter_uam_extendrelation
+		from uam_extendrelation
 		where main_id = #{mainId,jdbcType=VARCHAR}
 	</select>
 	<delete id="deleteByMianId" parameterType="java.lang.String">
-		delete from webstarter_uam_extendrelation
+		delete from uam_extendrelation
 		where MAIN_ID = #{mainId,jdbcType=VARCHAR}
 	</delete>
 	<delete id="deleteByExproId" parameterType="java.lang.String">
-		delete from webstarter_uam_extendrelation
+		delete from uam_extendrelation
 		where EXPRO_ID = #{exproId,jdbcType=VARCHAR}
 	</delete>
 </mapper>

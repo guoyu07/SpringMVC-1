@@ -14,8 +14,7 @@
 		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
 		<result column="data_state" property="dataState" jdbcType="VARCHAR" />
 		<result column="show_order" property="showOrder" jdbcType="INTEGER" />
-		<result column="relation_user_num" property="relationUserNum"
-			jdbcType="INTEGER" />
+		<result column="relation_user_num" property="relationUserNum" jdbcType="INTEGER" />
 	</resultMap>
 	<sql id="Base_Column_List">
 		id, group_id, user_login, pwd, safe_eval_pwd, name, email, office_phone,
@@ -27,18 +26,18 @@
 		parameterType="java.lang.String">
 		select
 		<include refid="Base_Column_List" />
-		from webstarter_uam_user
+		from uam_user
 		where id = #{id,jdbcType=VARCHAR}
 	</select>
 	
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
 		delete from
-		webstarter_uam_user
+		uam_user
 		where id = #{id,jdbcType=VARCHAR}
 	</delete>
 	<insert id="insert" parameterType="com.yngk.usermanage.model.UserInfo">
 		insert into
-		webstarter_uam_user (id, group_id, user_login,
+		uam_user (id, group_id, user_login,
 		pwd, safe_eval_pwd, name, email,
 		office_phone,
 		mobile_phone, update_time, data_state,
@@ -58,7 +57,7 @@
 		#{showOrder,jdbcType=INTEGER})
 	</insert>
 	<insert id="insertSelective" parameterType="com.yngk.usermanage.model.UserInfo">
-		insert into webstarter_uam_user
+		insert into uam_user
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
 				id,
@@ -137,7 +136,7 @@
 		</trim>
 	</insert>
 	<update id="updateByPrimaryKeySelective" parameterType="com.yngk.usermanage.model.UserInfo">
-		update webstarter_uam_user
+		update uam_user
 		<set>
 			<if test="groupId != null">
 				group_id = #{groupId,jdbcType=VARCHAR},
@@ -177,7 +176,7 @@
 	</update>
 	<update id="updateByPrimaryKey" parameterType="com.yngk.usermanage.model.UserInfo">
 		update
-		webstarter_uam_user
+		uam_user
 		set group_id = #{groupId,jdbcType=VARCHAR},
 		user_login = #{userLogin,jdbcType=VARCHAR},
 		pwd =
@@ -202,7 +201,7 @@
 		parameterType="java.lang.String">
 		select
 		<include refid="Base_Column_List" />
-		from webstarter_uam_user
+		from uam_user
 		where user_login =#{loginName,jdbcType=VARCHAR}
 	</select>
 	<select id="selectListByGroupId" resultMap="BaseResultMap"
@@ -211,12 +210,12 @@
 	usr.*, count(RELATION.sub_id) relation_user_num
 FROM
 	(
-		SELECT * FROM webstarter_uam_user
+		SELECT * FROM uam_user
 			WHERE group_id = #{ groupId,jdbcType = VARCHAR }
 	) usr
 LEFT JOIN (
 	SELECT r.main_id, u.id sub_id
-		FROM webstarter_uam_relation r, webstarter_uam_user u
+		FROM webstarter_uam_relation r, uam_user u
 			WHERE type = 'userMgrGroup' AND u.group_id = r.sub_id
 	UNION
 	SELECT r.main_id, r.sub_id
@@ -229,7 +228,7 @@ order by show_order
 	<select id="getPage" resultMap="BaseResultMap" parameterType="java.util.Map">
 		select
 		<include refid="Base_Column_List" />
-		from webstarter_uam_user
+		from uam_user
 		<where>
 			<if test="dataState!=null">
 				data_state= #{dataState,jdbcType=VARCHAR}
@@ -243,7 +242,7 @@ order by show_order
 	usr.*, count(RELATION.sub_id) relation_user_num
 	FROM
 		(
-			SELECT * FROM webstarter_uam_user
+			SELECT * FROM uam_user
 			<where>
 				<if test="name != null and name != ''">
 					 name like '%${name}%' or user_login like '%${name}%'
@@ -252,7 +251,7 @@ order by show_order
 		) usr
 	LEFT JOIN (
 		SELECT r.main_id, u.id sub_id
-			FROM webstarter_uam_relation r, webstarter_uam_user u
+			FROM webstarter_uam_relation r, uam_user u
 				WHERE type = 'userMgrGroup' AND u.group_id = r.sub_id
 		UNION
 		SELECT r.main_id, r.sub_id
@@ -276,7 +275,7 @@ order by show_order
   </select>
   
   <sql id="selectUserByQueryCriteriaSql">
-    from webstarter_uam_user RES
+    from uam_user RES
     <where>
     	1 = 1
  		<if test="id != null">
@@ -327,14 +326,14 @@ order by show_order
   	<select id="selectByUserRole" resultMap="BaseResultMap" parameterType="java.util.Map">
 		select
 		u.*
-		from webstarter_uam_user u,webstarter_uam_relation r
+		from uam_user u,webstarter_uam_relation r
 		where r.sub_id = #{roleId,jdbcType=VARCHAR} AND u.id=r.main_id
 			  AND r.type = #{type,jdbcType=VARCHAR}
 	</select>	
   	<select id="selectRelationUserList" resultMap="BaseResultMap" parameterType="java.util.Map">
 		select
 		<include refid="Base_Column_List" />
-		from webstarter_uam_user
+		from uam_user
 		where group_id in
 		(
 			SELECT
@@ -359,13 +358,13 @@ order by show_order
 	</select>	
 	<select id="selectListByGroupIdNoRelationNum" resultMap="BaseResultMap"
 		parameterType="java.lang.String">
-		SELECT * FROM webstarter_uam_user
+		SELECT * FROM uam_user
 		WHERE group_id = #{ groupId,jdbcType = VARCHAR }
 		order BY show_order
 	</select>	
 	<select id="getUsersByEName" resultMap="BaseResultMap"
 		parameterType="java.util.Map">
-		SELECT * FROM webstarter_uam_user
+		SELECT * FROM uam_user
 		WHERE safe_eval_pwd like '${name}%'
 		order BY show_order
 	</select>	

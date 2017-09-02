@@ -23,15 +23,15 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    from webstarter_uam_group
+    from uam_group
     where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from webstarter_uam_group
+    delete from uam_group
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.yngk.usermanage.model.GroupInfo" >
-    insert into webstarter_uam_group (id, parent_id, name, 
+    insert into uam_group (id, parent_id, name, 
       description, type, code, 
       area, update_time, data_state, 
       show_order)
@@ -41,7 +41,7 @@
       #{showOrder,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.yngk.usermanage.model.GroupInfo" >
-    insert into webstarter_uam_group
+    insert into uam_group
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -108,7 +108,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.yngk.usermanage.model.GroupInfo" >
-    update webstarter_uam_group
+    update uam_group
     <set >
       <if test="parentId != null" >
         parent_id = #{parentId,jdbcType=VARCHAR},
@@ -141,7 +141,7 @@
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.yngk.usermanage.model.GroupInfo" >
-    update webstarter_uam_group
+    update uam_group
     set parent_id = #{parentId,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},
@@ -156,31 +156,31 @@
   <select id="selectList" resultMap="BaseResultMap"  >
     select 
     <include refid="Base_Column_List" />
-    from webstarter_uam_group order by show_order
+    from uam_group order by show_order
   </select>
   <select id="selectListByParentId" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    from webstarter_uam_group
+    from uam_group
     where parent_id=#{id,jdbcType=VARCHAR} order by show_order
   </select>
    <select id="selectListByState" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    from webstarter_uam_group where  data_state = #{state,jdbcType=VARCHAR} order by show_order
+    from uam_group where  data_state = #{state,jdbcType=VARCHAR} order by show_order
   </select>
    <select id="selectListByCode" resultMap="BaseResultMap" parameterType="java.util.Map" >
     select 
     <include refid="Base_Column_List" />
-    from webstarter_uam_group where  data_state ='enable' and code like '${longCode}%' order by show_order
+    from uam_group where  data_state ='enable' and code like '${longCode}%' order by show_order
   </select>
    <select id="selectListByType" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    from webstarter_uam_group where data_state ='enable' and type = #{type,jdbcType=VARCHAR} order by show_order
+    from uam_group where data_state ='enable' and type = #{type,jdbcType=VARCHAR} order by show_order
   </select>  
   <select id="getGroupTypeList" resultMap="TypeMap" parameterType="java.lang.String" >
     select distinct type
-    from webstarter_uam_group where data_state ='enable'
+    from uam_group where data_state ='enable'
   </select>  
 </mapper>
