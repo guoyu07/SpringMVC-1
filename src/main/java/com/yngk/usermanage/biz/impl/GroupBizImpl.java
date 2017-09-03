@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.yngk.usermanage.biz.GroupBiz;
 import com.yngk.usermanage.dao.GroupInfoDao;
 import com.yngk.usermanage.dao.RelationInfoDao;
@@ -19,14 +22,18 @@ import com.yngk.utils.dao.BaseDao;
 /**
  * @ClassName: GroupBizImpl
  */
-
+@Service
 public class GroupBizImpl extends BaseBizImpl<GroupInfo> implements GroupBiz, Serializable
 {
 
     private static final long serialVersionUID = 5495581733172941134L;
+    @Autowired
     private GroupInfoDao groupInfoDao;
+    @Autowired
     private UserInfoDao userInfoDao;
+    @Autowired
     private UserExtendRelationInfoDao userExtendRelationInfoDao;
+    @Autowired
     private RelationInfoDao relationInfoDao;
 
     @Override

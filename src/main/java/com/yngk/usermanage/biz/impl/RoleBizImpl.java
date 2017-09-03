@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+
 import com.yngk.usermanage.biz.RoleBiz;
 import com.yngk.usermanage.dao.RelationInfoDao;
 import com.yngk.usermanage.dao.RoleInfoDao;
@@ -17,7 +19,7 @@ import com.yngk.utils.dao.BaseDao;
 /** 
  * @ClassName: RoleBizImpl
  */
-
+@Service
 public class RoleBizImpl extends BaseBizImpl<RoleInfo> implements RoleBiz, Serializable
 {
 

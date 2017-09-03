@@ -17,7 +17,24 @@
   		<!--  <property name="configLocation" value="WEB-INF/mybatisconfig.xml" />-->
   		<!--  <property name="typeAliases" value="com.abc.usermanage.model.User" />-->
   		<property name="typeAliasesPackage" value="com.yngk.usermanage.model" />
-  		<property name="mapperLocations" value="classpath*:com/yngk/usermanage/dao/datamapping/*Mapper.xml"></property>  
+  		<property name="mapperLocations" value="classpath*:com/yngk/usermanage/dao/datamapping/*Mapper.xml"></property>
+  		<!-- 注意其他配置 -->
+	  <property name="plugins">
+	    <array>
+	      <bean class="com.github.pagehelper.PageInterceptor">
+	        <property name="properties">
+	          <!--使用下面的方式配置参数，一行配置一个-->
+	          <value>
+		　　　　　　　　helperDialect=mysql
+		　　　　　　　　reasonable=true
+		　　　　　　　　supportMethodsArguments=true
+		　　　　　　　　params=count=countSql
+		　　　　　　　　autoRuntimeDialect=true	
+	　　　　　　 </value>
+	        </property>
+	      </bean>
+	    </array>
+	  </property>
   	</bean>
   	
   	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

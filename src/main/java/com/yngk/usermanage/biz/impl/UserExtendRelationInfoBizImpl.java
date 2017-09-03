@@ -3,6 +3,9 @@ package com.yngk.usermanage.biz.impl;
 import java.io.Serializable;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.yngk.usermanage.biz.UserExtendRelationInfoBiz;
 import com.yngk.usermanage.dao.UserExtendRelationInfoDao;
 import com.yngk.usermanage.model.UserExtendRelationInfo;
@@ -12,10 +15,11 @@ import com.yngk.utils.dao.BaseDao;
 /**
  * @ClassName: UserExtendRelationInfoBizImpl
  */
-
+@Service
 public class UserExtendRelationInfoBizImpl extends BaseBizImpl<UserExtendRelationInfo> implements UserExtendRelationInfoBiz,Serializable
 {
 	private static final long serialVersionUID = 4334389534924389261L;
+	@Autowired
 	private UserExtendRelationInfoDao userExtendRelationInfoDao;
 
 	@Override

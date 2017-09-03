@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class QueryResultObject 
 {
-	private int itemCount = 0;
+	private long itemCount = 0;
 	private List<?> itemList = null;
 	private List<DicItems> dicItemList = new ArrayList<DicItems>();
 	
@@ -18,7 +18,7 @@ public class QueryResultObject
 	 * 查询集合总数量
 	 * @return
 	 */
-	public int getItemCount() 
+	public long getItemCount() 
 	{
 		return itemCount;
 	}
@@ -27,7 +27,7 @@ public class QueryResultObject
 	 * 查询集合总数量
 	 * @param itemCount 查询集合总数量
 	 */
-	public void setItemCount(int itemCount) 
+	public void setItemCount(long itemCount) 
 	{
 		this.itemCount = itemCount;
 	}

@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.yngk.usermanage.biz.RelationInfoBiz;
 import com.yngk.usermanage.dao.RelationInfoDao;
 import com.yngk.usermanage.model.RelationInfo;
@@ -16,11 +19,12 @@ import com.yngk.utils.dao.BaseDao;
 /**
  * @ClassName: RelationInfoBizImpl
  */
-
+@Service
 public class RelationInfoBizImpl extends BaseBizImpl<RelationInfo> implements RelationInfoBiz, Serializable
 {
 
 	private static final long serialVersionUID = -2779269239443610269L;
+	@Autowired
 	private RelationInfoDao relationInfoDao;
 
 	@Override

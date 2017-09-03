@@ -23,26 +23,6 @@ public class AccountController
 	@ResponseBody
 	public QueryResultObject test(@RequestBody Map MapParam) throws Exception 
 	{
-//		@RequestParam int pageIndex, @RequestParam int pageSize
-//		Map<String, String> mapResult = new HashMap<String, String>();
-//		mapResult.put("item", "���Գɹ�");
-//		return "���Գɹ��������ˣ�";
-		
-//		List<User> lstUser = new ArrayList<User>();
-//		User user = new User();
-//		user.setUserId(UUID.randomUUID().toString());
-//		user.setUserName("admin");
-//		user.setPassword("123456");
-//		user.setUserType("����Ա");
-//		lstUser.add(user);
-//		
-//		user = new User();
-//		user.setUserId(UUID.randomUUID().toString());
-//		user.setUserName("user");
-//		user.setPassword("123456");
-//		user.setUserType("��ͨ�û�");
-//		lstUser.add(user);
-		
 		AccountInfo queryUser = new AccountInfo();
 //		queryUser.setUserName("user");
 		

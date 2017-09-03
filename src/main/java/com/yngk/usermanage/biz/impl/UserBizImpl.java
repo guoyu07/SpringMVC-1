@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.yngk.usermanage.biz.UserBiz;
 import com.yngk.usermanage.dao.RelationInfoDao;
 import com.yngk.usermanage.dao.UserInfoDao;
@@ -21,13 +24,15 @@ import sun.misc.BASE64Encoder;
 /**
  * @ClassName: UserBizImpl
  */
-
+@Service
 public class UserBizImpl extends BaseBizImpl<UserInfo> implements UserBiz,Serializable
 {
 
     private static final long serialVersionUID = 4792540191315843483L;
+    @Autowired
     private UserInfoDao userInfoDao;
 //    private IWebStarterRegistryService registerService;
+    @Autowired
     private RelationInfoDao relationInfoDao;
 //    private UserPwdDao userPwdDao;
 
@@ -77,7 +82,8 @@ public class UserBizImpl extends BaseBizImpl<UserInfo> implements UserBiz,Serial
         }
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("mainId", id);
-        int j = relationInfoDao.deleteByDetail(map);
+//        int j = 
+        relationInfoDao.deleteByDetail(map);
 //        if (j > 0)
 //        {
 //            CommonUtil.clearCache();
@@ -411,7 +417,8 @@ public class UserBizImpl extends BaseBizImpl<UserInfo> implements UserBiz,Serial
         return null;
     }
 
-    @Override
+	@SuppressWarnings("restriction")
+	@Override
     public UserInfo setUserPwd(UserInfo userInfo) throws Exception
     {
 //        // 设置安全密码
