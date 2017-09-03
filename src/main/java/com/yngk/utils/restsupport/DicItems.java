@@ -1,4 +1,4 @@
-package com.yngk.rest.support;
+package com.yngk.utils.restsupport;
 
 import java.util.ArrayList;
 import java.util.List;

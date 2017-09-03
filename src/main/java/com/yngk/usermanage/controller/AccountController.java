@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yngk.usermanage.biz.AccountBiz;
 import com.yngk.usermanage.model.AccountInfo;
-import com.yngk.usermanage.util.QueryResultObject;
+import com.yngk.utils.restsupport.QueryResultObject;
 
 @Controller
 @RequestMapping("/Account")
@@ -54,7 +54,7 @@ public class AccountController
 		
 		QueryResultObject queryResultObj = new QueryResultObject();
 		queryResultObj.setItemList(this.accountBiz.queryAccountList(queryUser, startIndex, endIndex));
-		queryResultObj.setTotalItemCount(this.accountBiz.getAccountCount(queryUser));
+		queryResultObj.setItemCount(this.accountBiz.getAccountCount(queryUser));
 		
 		return queryResultObj;
 	}	
