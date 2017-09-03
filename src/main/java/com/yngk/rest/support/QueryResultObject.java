@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ��ѯ������
+ * 查询结果对象
  * @author LiuXian
  *
  */
@@ -15,7 +15,7 @@ public class QueryResultObject
 	private List<DicItems> dicItemList = new ArrayList<DicItems>();
 	
 	/**
-	 * ���������
+	 * 查询集合总数量
 	 * @return
 	 */
 	public int getItemCount() 
@@ -24,8 +24,8 @@ public class QueryResultObject
 	}
 	
 	/**
-	 * ���������
-	 * @param itemCount ���������
+	 * 查询集合总数量
+	 * @param itemCount 查询集合总数量
 	 */
 	public void setItemCount(int itemCount) 
 	{
@@ -33,8 +33,8 @@ public class QueryResultObject
 	}
 	
 	/**
-	 * ������
-	 * @return ������
+	 * 查询集合
+	 * @return 查询集合
 	 */
 	public List<?> getItemList() 
 	{
@@ -42,8 +42,8 @@ public class QueryResultObject
 	}
 	
 	/**
-	 * ������
-	 * @param itemList ������
+	 * 查询集合
+	 * @param itemList 查询集合
 	 */
 	public void setItemList(List<?> itemList) 
 	{
@@ -51,8 +51,8 @@ public class QueryResultObject
 	}
 	
 	/**
-	 * ��ȡ�ֵ��б�
-	 * @return ��ȡ�ֵ��б�
+	 * 字典列表
+	 * @return 字典列表
 	 */
 	public List<DicItems> getDicItemList() 
 	{
@@ -60,24 +60,24 @@ public class QueryResultObject
 	}
 	
 	/**
-	 * �����ֵ�
-	 * @param dicItems �ֵ���
+	 * 字典列表
+	 * @param dicItems 字典列表
 	 * @return
 	 */
 	 public QueryResultObject addDicItems(DicItems dicItems)
 	 {
-		    this.dicItemList.add(dicItems);
-		    return this;
+		  this.dicItemList.add(dicItems);
+		  return this;
 	 }
 
 	 /**
-	  * �����ֵ��б�
-	  * @param dicItems �ֵ��б�
+	  * 增加字典项
+	  * @param dicItems 字典项
 	  * @return
 	  */
 	 public QueryResultObject addDicItems(List<DicItems> dicItems)
 	 {
-		    this.dicItemList.addAll(dicItems);
-		    return this;
+		  this.dicItemList.addAll(dicItems);
+		  return this;
 	 }
 }
