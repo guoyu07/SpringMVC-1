@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yngk.usermanage.biz.AccountBiz;
-import com.yngk.usermanage.datamapper.AccountDataMapper;
+import com.yngk.usermanage.dao.AccountDataMapper;
 import com.yngk.usermanage.model.AccountInfo;
 
 @Service

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yngk.usermanage.dao.RoleInfoDao" >
+  <resultMap id="BaseResultMap" type="com.yngk.usermanage.model.RoleInfo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="data_state" property="dataState" jdbcType="VARCHAR" />
+    <result column="show_order" property="showOrder" jdbcType="INTEGER" />
+    <result column="domain" property="domain" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+  <![CDATA[
+    id, name, description, type, code, update_time, data_state, show_order, domain
+    ]]>
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from uam_role
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from uam_role
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yngk.usermanage.model.RoleInfo" >
+  <![CDATA[
+    insert into uam_role (id, name, description, 
+      type, code, update_time, 
+      data_state, show_order, domain
+      )
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{dataState,jdbcType=VARCHAR}, #{showOrder,jdbcType=INTEGER}, #{domain,jdbcType=VARCHAR}
+      )
+  ]]>
+  </insert>
+  <insert id="insertSelective" parameterType="com.yngk.usermanage.model.RoleInfo" >
+    insert into uam_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="dataState != null" >
+        data_state,
+      </if>
+      <if test="showOrder != null" >
+        show_order,
+      </if>
+      <if test="domain != null" >
+      domain
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataState != null" >
+        #{dataState,jdbcType=VARCHAR},
+      </if>
+      <if test="showOrder != null" >
+        #{showOrder,jdbcType=INTEGER},
+      </if>
+      <if test="domain != null" >
+        #{domain,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yngk.usermanage.model.RoleInfo" >
+    update uam_role
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataState != null" >
+        data_state = #{dataState,jdbcType=VARCHAR},
+      </if>
+      <if test="showOrder != null" >
+        show_order = #{showOrder,jdbcType=INTEGER},
+      </if>
+      <if test="domain != null" >
+      domain = #{domain,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yngk.usermanage.model.RoleInfo" >
+    <![CDATA[
+    update uam_role
+    set name = #{name,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      data_state = #{dataState,jdbcType=VARCHAR},
+      show_order = #{showOrder,jdbcType=INTEGER},
+     domain = #{domain,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+     ]]>
+  </update>
+  <select id="selectListByUserId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  select  role.*  from uam_role role,
+  webstarter_uam_relation relation 
+   where role.id=relation.sub_id and 
+   relation.main_id=#{id,jdbcType=VARCHAR} and relation.type='userRole'
+   order by role.show_order
+  </select>
+   <select id="selectListByState" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from uam_role
+    where  data_state = #{state,jdbcType=VARCHAR}
+    order by show_order
+  </select>
+   <select id="selectListByType" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from uam_role
+    where  type = #{type,jdbcType=VARCHAR}
+    order by show_order
+  </select>
+  
+  <select id="selectRoleByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from uam_role
+    where  name = #{name,jdbcType=VARCHAR}
+    and type='role'
+    order by show_order
+  </select>
+  
+   <select id="selectPostByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from uam_role
+    where  name = #{name,jdbcType=VARCHAR}
+    and type='post'
+    order by show_order
+  </select>
+  <select id="selectRoleByQueryCriteria" parameterType="com.yngk.usermanage.model.RoleInfo" resultMap="BaseResultMap">
+  	
+    select RES.* 
+    <include refid="selectRoleByQueryCriteriaSql" />
+
+  </select>
+  
+   <select id="selectRoleCountByQueryCriteria" parameterType="com.yngk.usermanage.model.RoleInfo" resultType="long">
+    select count(RES.id)
+    <include refid="selectRoleByQueryCriteriaSql" />
+  </select>
+  
+  <sql id="selectRoleByQueryCriteriaSql">
+    from uam_role RES 
+    <where>
+    	1 = 1
+	  <if test="id != null" >
+        and id = #{id,jdbcType=VARCHAR}
+      </if>    	
+	  <if test="name != null" >
+        and name like #{name,jdbcType=VARCHAR}
+      </if>
+      <if test="description != null" >
+        and description = #{description,jdbcType=VARCHAR}
+      </if>
+      <if test="type != null" >
+        and type = #{type,jdbcType=VARCHAR}
+      </if>
+      <if test="code != null" >
+        and code = #{code,jdbcType=VARCHAR}
+      </if>
+      <if test="updateTime != null" >
+        and update_time = #{updateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="dataState != null" >
+        and data_state = #{dataState,jdbcType=VARCHAR}
+      </if>
+      <if test="showOrder != null" >
+        and show_order = #{showOrder,jdbcType=INTEGER}
+      </if>
+      <if test="domain != null" >
+        and domain = #{domain,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </sql>  
+</mapper>

@@ -1,4 +1,4 @@
-package com.yngk.rest.support;
+package com.yngk.utils.restsupport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.Map;
 
 /**
  * 
- * �ֵ伯�϶���
+ * 字典数据项
  * @author LiuXian
  *
  */
@@ -16,7 +16,7 @@ public class DicItems
 	private List<Map<String, String>> values = new ArrayList<Map<String, String>>();
 	
 	/**
-	 * �ֵ����
+	 * 字典项名称
 	 * @return
 	 */
 	public String getName() 
@@ -25,8 +25,8 @@ public class DicItems
 	}
 	
 	/**
-	 * �ֵ����
-	 * @param name �ֵ����
+	 * 字典项名称
+	 * @param name 字典项名称
 	 */
 	public void setName(String name) 
 	{
@@ -34,8 +34,8 @@ public class DicItems
 	}
 	
 	/**
-	 * �ֵ�ֵ�б�
-	 * @return �ֵ�ֵ�б�
+	 * 字典项值列表
+	 * @return 字典项值列表
 	 */
 	public List<Map<String, String>> getValues() 
 	{
@@ -43,13 +43,11 @@ public class DicItems
 	}
 	
 	/**
-	 * �ֵ�ֵ�б�
-	 * @param values �ֵ�ֵ�б�
+	 * 字典项值列表
+	 * @param values 字典项值列表
 	 */
 	public void setValues(List<Map<String, String>> values) 
 	{
 		this.values = values;
 	}
-	
-	
 }

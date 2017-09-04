@@ -110,7 +110,7 @@ var vm = new Vue({
 //			});
 
 
-			axios.post("/SpringMVC/AccountControl/test", {pageIndex: currentPageIndex, pageSize: pageSize})
+			axios.post("/SpringMVC/Account/test", {pageIndex: currentPageIndex, pageSize: pageSize})
 				  .then(function (response) {
 				    _self.tableData = response.data.itemList;
 				    _self.itemCount = response.data.totalItemCount;

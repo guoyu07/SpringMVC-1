@@ -55,5 +55,7 @@ dependencies{
 	compile group: 'com.mysql.jdbc', name: 'com.springsource.com.mysql.jdbc', version: '5.1.6'
 	// compile group: 'com.oracle', name: 'ojdbc14', version: '10.2.0.4.0'
 	// compile files('web-info/lib/Oracle10g.jar')
+	
+	compile group: 'com.github.pagehelper', name: 'pagehelper', version: '5.1.1'	
 }
 
