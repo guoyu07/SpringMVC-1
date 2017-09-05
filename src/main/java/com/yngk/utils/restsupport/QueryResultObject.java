@@ -13,6 +13,8 @@ public class QueryResultObject
 	private long itemCount = 0;
 	private List<?> itemList = null;
 	private List<DicItems> dicItemList = new ArrayList<DicItems>();
+	private boolean success = true; // 请求是否成功
+	private String errorInfo = ""; // 请求失败错误信息
 	
 	/**
 	 * 查询集合总数量
@@ -80,4 +82,24 @@ public class QueryResultObject
 		  this.dicItemList.addAll(dicItems);
 		  return this;
 	 }
+
+	public boolean isSuccess() 
+	{
+		return success;
+	}
+
+	public void setSuccess(boolean success) 
+	{
+		this.success = success;
+	}
+
+	public String getErrorInfo() 
+	{
+		return errorInfo;
+	}
+
+	public void setErrorInfo(String errorInfo) 
+	{
+		this.errorInfo = errorInfo;
+	}
 }

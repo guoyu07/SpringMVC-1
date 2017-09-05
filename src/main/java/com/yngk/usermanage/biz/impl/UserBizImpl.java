@@ -3,19 +3,24 @@ package com.yngk.usermanage.biz.impl;
 import java.io.Serializable;
 import java.security.MessageDigest;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mysql.jdbc.StringUtils;
 import com.yngk.usermanage.biz.UserBiz;
 import com.yngk.usermanage.dao.RelationInfoDao;
 import com.yngk.usermanage.dao.UserInfoDao;
 import com.yngk.usermanage.model.UserInfo;
 import com.yngk.usermanage.util.CommonUtil;
+import com.yngk.usermanage.vo.UserInfoVo;
 import com.yngk.utils.biz.BaseBizImpl;
+import com.yngk.utils.common.Func;
 import com.yngk.utils.dao.BaseDao;
 import com.yngk.utils.system.SystemConfigUtil;
 
@@ -58,19 +63,77 @@ public class UserBizImpl extends BaseBizImpl<UserInfo> implements UserBiz,Serial
     }
 
     @Override
-    public boolean addUserInfo(UserInfo userInfo)throws Exception
+    public void addUserInfo(UserInfoVo userInfo) throws Exception
     {
-        //userInfo.setPwd(passwordEncoder.encodePassword(userInfo.getPwd(), null));
-        boolean flag = false;
+    	// 校验用户信息
+    	validUserInfo(userInfo);
+    	// 加密密码
+    	this.setUserPwd(userInfo);
+    	// 统一设置用户名为小写
         String userLogin = userInfo.getUserLogin();
-        userInfo.setUserLogin(userLogin.toUpperCase());
-        int i = userInfoDao.insertSelective(userInfo);
-        if (i >= 0)
+        userInfo.setUserLogin(userLogin.toLowerCase());
+        userInfo.setGroupId("123456");
+        // 生成ID
+        userInfo.setId(UUID.randomUUID().toString());
+        userInfo.setUpdateTime(new Date());
+        userInfo.setDataState(CommonUtil.STATE_ENABLE);        
+        
+        // 添加用户
+        if (userInfoDao.insertSelective(userInfo) <= 0)
         {
-            flag = true;
+        	throw new Exception("创建用户信息失败，请确认！");        	
         }
-        return flag;
     }
+    
+    // 校验用户信息
+    private void validUserInfo(UserInfoVo addUserInfo) throws Exception
+    {
+         if (StringUtils.isNullOrEmpty(addUserInfo.getUserLogin()))
+         {
+             throw new Exception("账号不能为空!");
+         }
+         if (addUserInfo.getUserLogin().length() > 30)
+         {
+        	 throw new Exception("用户名不能超过30个字符!");
+         }
+         
+         if (StringUtils.isNullOrEmpty(addUserInfo.getPwd()))
+         {
+        	 throw new Exception("密码不能为空!");
+         }
+         
+         if (StringUtils.isNullOrEmpty(addUserInfo.getSecondPwd()) || !addUserInfo.getSecondPwd().equals(addUserInfo.getPwd()))
+         {
+        	 throw new Exception("两次输入密码不一致!");
+         }         
+         
+         if (StringUtils.isNullOrEmpty(addUserInfo.getName()))
+         {
+        	 throw new Exception("姓名不能为空!");
+         }
+         
+         if (this.getByLoginName(addUserInfo.getUserLogin()) != null)
+         {
+        	 throw new Exception(String.format("%s用户名已存在!", addUserInfo.getUserLogin()));
+         }
+         
+//         if (selectedGroup == null)
+//         {
+//             setErrorMessage("请先选择部门!");
+//             super.addCallbackParam(flag);
+//             return;
+//         }         
+         
+         if (addUserInfo.getMobilePhone().length() > 0 && !Func.isMobileNum(addUserInfo.getMobilePhone()))
+         {
+        	 throw new Exception("手机号码格式错误！");
+         }
+         if (addUserInfo.getEmail().length() > 0 && !Func.isEmail(addUserInfo.getEmail()))
+         {
+        	 throw new Exception("邮箱格式错误！");
+         }        
+    }
+    
     @Override
     public boolean deleteUserInfo(String id)throws Exception
     {

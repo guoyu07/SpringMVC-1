@@ -59,78 +59,78 @@
 	<insert id="insertSelective" parameterType="com.yngk.usermanage.model.UserInfo">
 		insert into uam_user
 		<trim prefix="(" suffix=")" suffixOverrides=",">
-			<if test="id != null">
+			<if test="id != ''">
 				id,
 			</if>
-			<if test="groupId != null">
+			<if test="groupId != ''">
 				group_id,
 			</if>
-			<if test="userLogin != null">
+			<if test="userLogin != ''">
 				user_login,
 			</if>
-			<if test="pwd != null">
+			<if test="pwd != ''">
 				pwd,
 			</if>
-			<if test="safeEvalPwd != null">
+			<if test="safeEvalPwd != ''">
 				safe_eval_pwd,
 			</if>
-			<if test="name != null">
+			<if test="name != ''">
 				name,
 			</if>
-			<if test="email != null">
+			<if test="email != ''">
 				email,
 			</if>
-			<if test="officePhone != null">
+			<if test="officePhone != ''">
 				office_phone,
 			</if>
-			<if test="mobilePhone != null">
+			<if test="mobilePhone != ''">
 				mobile_phone,
 			</if>
 			<if test="updateTime != null">
 				update_time,
 			</if>
-			<if test="dataState != null">
+			<if test="dataState != ''">
 				data_state,
 			</if>
-			<if test="showOrder != null">
+			<if test="showOrder > 0">
 				show_order,
 			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
-			<if test="id != null">
+			<if test="id != ''">
 				#{id,jdbcType=VARCHAR},
 			</if>
-			<if test="groupId != null">
+			<if test="groupId != ''">
 				#{groupId,jdbcType=VARCHAR},
 			</if>
-			<if test="userLogin != null">
+			<if test="userLogin != ''">
 				#{userLogin,jdbcType=VARCHAR},
 			</if>
-			<if test="pwd != null">
+			<if test="pwd != ''">
 				#{pwd,jdbcType=VARCHAR},
 			</if>
-			<if test="safeEvalPwd != null">
+			<if test="safeEvalPwd != ''">
 				#{safeEvalPwd,jdbcType=VARCHAR},
 			</if>
-			<if test="name != null">
+			<if test="name != ''">
 				#{name,jdbcType=VARCHAR},
 			</if>
-			<if test="email != null">
+			<if test="email != ''">
 				#{email,jdbcType=VARCHAR},
 			</if>
-			<if test="officePhone != null">
+			<if test="officePhone != ''">
 				#{officePhone,jdbcType=VARCHAR},
 			</if>
-			<if test="mobilePhone != null">
+			<if test="mobilePhone != ''">
 				#{mobilePhone,jdbcType=VARCHAR},
 			</if>
 			<if test="updateTime != null">
 				#{updateTime,jdbcType=TIMESTAMP},
 			</if>
-			<if test="dataState != null">
+			<if test="dataState != ''">
 				#{dataState,jdbcType=VARCHAR},
 			</if>
-			<if test="showOrder != null">
+			<if test="showOrder > 0">
 				#{showOrder,jdbcType=INTEGER},
 			</if>
 		</trim>
@@ -138,37 +138,37 @@
 	<update id="updateByPrimaryKeySelective" parameterType="com.yngk.usermanage.model.UserInfo">
 		update uam_user
 		<set>
-			<if test="groupId != null">
+			<if test="groupId != ''">
 				group_id = #{groupId,jdbcType=VARCHAR},
 			</if>
-			<if test="userLogin != null">
+			<if test="userLogin != ''">
 				user_login = #{userLogin,jdbcType=VARCHAR},
 			</if>
-			<if test="pwd != null">
+			<if test="pwd != ''">
 				pwd = #{pwd,jdbcType=VARCHAR},
 			</if>
-			<if test="safeEvalPwd != null">
+			<if test="safeEvalPwd != ''">
 				safe_eval_pwd = #{safeEvalPwd,jdbcType=VARCHAR},
 			</if>
-			<if test="name != null">
+			<if test="name != ''">
 				name = #{name,jdbcType=VARCHAR},
 			</if>
-			<if test="email != null">
+			<if test="email != ''">
 				email = #{email,jdbcType=VARCHAR},
 			</if>
-			<if test="officePhone != null">
+			<if test="officePhone != ''">
 				office_phone = #{officePhone,jdbcType=VARCHAR},
 			</if>
-			<if test="mobilePhone != null">
+			<if test="mobilePhone != ''">
 				mobile_phone = #{mobilePhone,jdbcType=VARCHAR},
 			</if>
-			<if test="updateTime != null">
+			<if test="updateTime != ''">
 				update_time = #{updateTime,jdbcType=TIMESTAMP},
 			</if>
-			<if test="dataState != null">
+			<if test="dataState != ''">
 				data_state = #{dataState,jdbcType=VARCHAR},
 			</if>
-			<if test="showOrder != null">
+			<if test="showOrder != ''">
 				show_order = #{showOrder,jdbcType=INTEGER},
 			</if>
 		</set>
@@ -244,7 +244,7 @@ order by show_order
 		(
 			SELECT * FROM uam_user
 			<where>
-				<if test="name != null and name != ''">
+				<if test="name != ''">
 					 name like '%${name}%' or user_login like '%${name}%'
 				</if>
 			</where>
@@ -278,47 +278,32 @@ order by show_order
     from uam_user RES
     <where>
     	1 = 1
- 		<if test="id != null">
+ 		<if test="id != ''">
 			and id = #{id,jdbcType=VARCHAR}
 		</if>
-		<if test="groupId != null">
+		<if test="groupId != ''">
 			and group_id = #{groupId,jdbcType=VARCHAR}
 		</if>
-		<if test="userLogin != null">
+		<if test="userLogin != ''">
 			and user_login = #{userLogin,jdbcType=VARCHAR}
-		</if>
-		<if test="pwd != null">
-   			and RES.id in 
-   			(select main_id from webstarter_uam_relation where sub_id in
-   			(select id from webstarter_uam_role where name=#{pwd,jdbcType=VARCHAR})
-   			 and type='userRole') 
-		</if>
-		<if test="safeEvalPwd != null">
-   			and RES.id in 
-   			(select main_id from webstarter_uam_relation where sub_id in
-   			(select id from webstarter_uam_role where name=#{safeEvalPwd,jdbcType=VARCHAR})
-   			 and type='userRole') 
-		</if>
-		<if test="name != null">
+		</if>		
+		<if test="name != ''">
 			and name like #{name,jdbcType=VARCHAR}
 		</if>
-		<if test="email != null">
+		<if test="email != ''">
 			and email = #{email,jdbcType=VARCHAR}
 		</if>
-		<if test="officePhone != null">
+		<if test="officePhone != ''">
 			and office_phone = #{officePhone,jdbcType=VARCHAR}
 		</if>
-		<if test="mobilePhone != null">
+		<if test="mobilePhone != ''">
 			and mobile_phone = #{mobilePhone,jdbcType=VARCHAR}
 		</if>
 		<if test="updateTime != null">
 			and update_time = #{updateTime,jdbcType=TIMESTAMP}
 		</if>
-		<if test="dataState != null">
+		<if test="dataState != ''">
 			and data_state = #{dataState,jdbcType=VARCHAR}
-		</if>
-		<if test="showOrder != null">
-			and show_order = #{showOrder,jdbcType=INTEGER}
 		</if>
     </where>
   </sql>

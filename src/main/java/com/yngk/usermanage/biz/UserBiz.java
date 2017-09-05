@@ -3,6 +3,7 @@ package com.yngk.usermanage.biz;
 import java.util.List;
 
 import com.yngk.usermanage.model.UserInfo;
+import com.yngk.usermanage.vo.UserInfoVo;
 import com.yngk.utils.biz.BaseBiz;
 
 /**
@@ -31,10 +32,9 @@ public interface UserBiz extends BaseBiz<UserInfo>
      * 新增用户
      * @Title: addUserInfo
      * @Description: TODO
-     * @return: boolean
      * @throws Exception 
      */
-    boolean addUserInfo(UserInfo userInfo) throws Exception;
+    void addUserInfo(UserInfoVo userInfo) throws Exception;
 
     /**
      * 删除用户

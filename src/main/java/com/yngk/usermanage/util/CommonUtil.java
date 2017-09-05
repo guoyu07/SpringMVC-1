@@ -93,11 +93,11 @@ public class CommonUtil
      */
     public static String RELATION_ME_ROLE = "MutualExclusionRole";	
 	/** 启动状态*/
-	public static String STATE_ENABLE = "ENABLE";
+	public static String STATE_ENABLE = "启用";
 	/** 禁用状态 */
-	public static String STATE_DISABLE = "DISABLE";
+	public static String STATE_DISABLE = "禁用";
 	/** 删除状态*/
-	public static String STATE_DELETE = "DELETE";
+	public static String STATE_DELETE = "删除";
 	
     public final static String SET_USER_RES = "用户按钮资源分配";
     

@@ -11,36 +11,36 @@ public class UserInfo implements Serializable
 {
     private static final long serialVersionUID = -6320060667384225257L;
 
-    private String id;
+    private String id = "";
 
-    private String groupId;
+    private String groupId = "";
 
-    private String userLogin;
+    private String userLogin = "";
 
-    private String pwd;
+    private String pwd = "";
     
-    private String safeEvalPwd;
+    private String safeEvalPwd = "";
     
-    private String name;
+    private String name = "";
     
     /**    
      * 身份证号
      */    
     private String privateIdentityId = "";
 
-    private String email;
+    private String email = "";
 
-    private String officePhone;
+    private String officePhone = "";
 
-    private String mobilePhone;
+    private String mobilePhone = "";
 
-    private Date updateTime;
+    private Date updateTime = null;
 
-    private String dataState;
+    private String dataState = "";
 
-    private Integer showOrder;
+    private Integer showOrder = 1;
 
-    private Integer relationUserNum;
+    private Integer relationUserNum = 0;
 
     public String getId()
     {
