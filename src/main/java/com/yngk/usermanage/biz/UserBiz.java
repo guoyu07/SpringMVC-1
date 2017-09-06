@@ -35,6 +35,13 @@ public interface UserBiz extends BaseBiz<UserInfo>
      * @throws Exception 
      */
     void addUserInfo(UserInfoVo userInfo) throws Exception;
+    
+    /**
+     * 编辑用户信息
+     * @param userInfo
+     * @throws Exception
+     */
+    void updateUserInfo(UserInfoVo userInfo) throws Exception;
 
     /**
      * 删除用户

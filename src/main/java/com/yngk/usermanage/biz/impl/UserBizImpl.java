@@ -86,36 +86,40 @@ public class UserBizImpl extends BaseBizImpl<UserInfo> implements UserBiz,Serial
     }
     
     // 校验用户信息
-    private void validUserInfo(UserInfoVo addUserInfo) throws Exception
+    private void validUserInfo(UserInfoVo userInfo) throws Exception
     {
-         if (StringUtils.isNullOrEmpty(addUserInfo.getUserLogin()))
-         {
-             throw new Exception("账号不能为空!");
-         }
-         if (addUserInfo.getUserLogin().length() > 30)
-         {
-        	 throw new Exception("用户名不能超过30个字符!");
-         }
+    	 if (StringUtils.isNullOrEmpty(userInfo.getId()))
+    	 {
+    		 // 新增用户信息
+	         if (StringUtils.isNullOrEmpty(userInfo.getUserLogin()))
+	         {
+	             throw new Exception("账号不能为空!");
+	         }
+	         if (userInfo.getUserLogin().length() > 30)
+	         {
+	        	 throw new Exception("用户名不能超过30个字符!");
+	         }         
+	         if (this.getByLoginName(userInfo.getUserLogin()) != null)
+	         {
+	        	 throw new Exception(String.format("%s用户名已存在!", userInfo.getUserLogin()));
+	         }
+	         
+	         if (StringUtils.isNullOrEmpty(userInfo.getPwd()))
+	         {
+	        	 throw new Exception("密码不能为空!");
+	         }
+	         
+	         if (StringUtils.isNullOrEmpty(userInfo.getSecondPwd()) || !userInfo.getSecondPwd().equals(userInfo.getPwd()))
+	         {
+	        	 throw new Exception("两次输入密码不一致!");
+	         }
+    	 }
          
-         if (StringUtils.isNullOrEmpty(addUserInfo.getPwd()))
-         {
-        	 throw new Exception("密码不能为空!");
-         }
-         
-         if (StringUtils.isNullOrEmpty(addUserInfo.getSecondPwd()) || !addUserInfo.getSecondPwd().equals(addUserInfo.getPwd()))
-         {
-        	 throw new Exception("两次输入密码不一致!");
-         }         
-         
-         if (StringUtils.isNullOrEmpty(addUserInfo.getName()))
+         if (StringUtils.isNullOrEmpty(userInfo.getName()))
          {
         	 throw new Exception("姓名不能为空!");
-         }
-         
-         if (this.getByLoginName(addUserInfo.getUserLogin()) != null)
-         {
-        	 throw new Exception(String.format("%s用户名已存在!", addUserInfo.getUserLogin()));
-         }
+         }         
+
          
 //         if (selectedGroup == null)
 //         {
@@ -124,11 +128,11 @@ public class UserBizImpl extends BaseBizImpl<UserInfo> implements UserBiz,Serial
 //             return;
 //         }         
          
-         if (addUserInfo.getMobilePhone().length() > 0 && !Func.isMobileNum(addUserInfo.getMobilePhone()))
+         if (userInfo.getMobilePhone().length() > 0 && !Func.isMobileNum(userInfo.getMobilePhone()))
          {
         	 throw new Exception("手机号码格式错误！");
          }
-         if (addUserInfo.getEmail().length() > 0 && !Func.isEmail(addUserInfo.getEmail()))
+         if (userInfo.getEmail().length() > 0 && !Func.isEmail(userInfo.getEmail()))
          {
         	 throw new Exception("邮箱格式错误！");
          }        
@@ -510,7 +514,25 @@ public class UserBizImpl extends BaseBizImpl<UserInfo> implements UserBiz,Serial
         userInfo.setPwd(newPwd);
         
         return userInfo;
-    }   
+    }
+
+	@Override
+	public void updateUserInfo(UserInfoVo userInfo) throws Exception 
+	{
+		// 校验用户信息
+    	validUserInfo(userInfo);
+    	// 清除不允许保存的信息
+    	userInfo.setDataState("");
+    	userInfo.setPwd("");
+    	userInfo.setShowOrder(0);
+    	userInfo.setUserLogin("");     
+        
+        // 添加用户
+        if (userInfoDao.updateByPrimaryKeySelective(userInfo) <= 0)
+        {
+        	throw new Exception("编辑用户信息失败，请确认！");        	
+        }
+	}   
 
     
 //    @Override

@@ -288,7 +288,7 @@ order by show_order
 			and user_login = #{userLogin,jdbcType=VARCHAR}
 		</if>		
 		<if test="name != ''">
-			and name like #{name,jdbcType=VARCHAR}
+			and lower(name) like CONCAT('%', lower(#{name,jdbcType=VARCHAR}),'%')
 		</if>
 		<if test="email != ''">
 			and email = #{email,jdbcType=VARCHAR}
