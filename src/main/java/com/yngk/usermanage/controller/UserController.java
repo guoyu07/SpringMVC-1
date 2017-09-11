@@ -1,7 +1,7 @@
 package com.yngk.usermanage.controller;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.booway.techcomp.commonfunction.ConvertUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.mysql.jdbc.StringUtils;
 import com.yngk.usermanage.biz.UserBiz;
+import com.yngk.usermanage.model.SysMenuItem;
 import com.yngk.usermanage.model.UserInfo;
 import com.yngk.usermanage.vo.UserInfoVo;
 import com.yngk.utils.restsupport.QueryResultObject;
@@ -118,6 +118,92 @@ public class UserController
 			result.setErrorInfo("删除用户信息失败，请确认！");
 		}
 		
+		
+		return result;
+	}
+	
+	@RequestMapping(value="/getUserMenuList")
+	@ResponseBody
+	public QueryResultObject getUserMenuList(@RequestBody UserInfoVo queryUserInfo) throws Exception
+	{
+		QueryResultObject result = new QueryResultObject();
+		
+		List<SysMenuItem> lstMenu = new ArrayList<SysMenuItem>();
+		SysMenuItem menu = new SysMenuItem();
+		// 工程管理菜单组
+		menu.setPath("/");
+		menu.setIconCls("project");
+		menu.setName("工程管理");
+		menu.setMenuFile("Home.vue");
+		// 添加到列表
+		lstMenu.add(menu);
+		
+		// 子级菜单
+		SysMenuItem childMenu = new SysMenuItem();
+		childMenu.setPath("/ProjectList");
+		childMenu.setMenuFile("ProjectManage/ProjectList.vue");
+		childMenu.setName("工程列表管理");
+//		childMenu.setComponent("ProjectList");
+		menu.getChildren().add(childMenu);
+		
+		menu.setLeaf(menu.getChildren().size() <= 0);
+		
+		// 计划管理菜单组
+		menu = new SysMenuItem();
+		menu.setPath("/");
+		menu.setIconCls("plan");
+		menu.setName("计划管理");
+		menu.setMenuFile("Home.vue");
+		// 添加到列表
+		lstMenu.add(menu);
+		
+		// 子级菜单
+		childMenu = new SysMenuItem();
+		childMenu.setPath("/PlanList");
+		childMenu.setMenuFile("PlanManage/PlanList.vue");
+		childMenu.setName("计划列表管理");
+		menu.getChildren().add(childMenu);
+		
+		menu.setLeaf(menu.getChildren().size() <= 0);
+		
+		// 系统管理菜单组
+		menu = new SysMenuItem();
+		menu.setPath("/");
+		menu.setIconCls("systemmgr");
+		menu.setMenuFile("Home.vue");
+		menu.setName("系统管理");
+		// 添加到列表
+		lstMenu.add(menu);
+		
+		// 子级菜单
+		childMenu = new SysMenuItem();
+		childMenu.setPath("/GroupManage");
+		childMenu.setMenuFile("UserManage/GroupManage.vue");
+		childMenu.setName("组织管理");
+		menu.getChildren().add(childMenu);
+		
+		childMenu = new SysMenuItem();
+		childMenu.setPath("/AccountManage");
+		childMenu.setMenuFile("UserManage/AccountManage.vue");
+		childMenu.setName("帐户管理");
+		menu.getChildren().add(childMenu);
+		
+		childMenu = new SysMenuItem();
+		childMenu.setPath("/RoleManage");
+		childMenu.setMenuFile("UserManage/RoleManage.vue");
+		childMenu.setName("角色管理");
+		menu.getChildren().add(childMenu);
+		
+		childMenu = new SysMenuItem();
+		childMenu.setPath("/PermissionManage");
+		childMenu.setMenuFile("UserManage/PermissionManage.vue");
+		childMenu.setName("权限管理");
+		menu.getChildren().add(childMenu);
+		
+		menu.setLeaf(menu.getChildren().size() <= 0);
+		
+		// 添加到返回结果对象中
+		result.setItemList(lstMenu);
 		
 		return result;
 	}
